@@ -1,28 +1,7 @@
 from django.contrib import admin
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-# from home.models import BugTickets, SortedBugTickets
-
-# Register your models here.
-# admin.site.register(BugTickets)
-# admin.site.register(SortedBugTickets)
-=======
-from home.models import BugTickets
+from home.models import BugTickets, SortedBugTickets
 
 # Register your models here.
 admin.site.register(BugTickets)
->>>>>>> parent of 3efaa2e (Development Break)
-=======
-from home.models import BugTickets
-
-# Register your models here.
-admin.site.register(BugTickets)
->>>>>>> parent of 3efaa2e (Development Break)
-=======
-from home.models import BugTickets
-
-# Register your models here.
-admin.site.register(BugTickets)
->>>>>>> parent of 3efaa2e... Development Break
+admin.site.register(SortedBugTickets)
