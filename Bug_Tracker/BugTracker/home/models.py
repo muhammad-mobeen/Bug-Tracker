@@ -1,5 +1,6 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 # from django.forms import ModelForm, Textarea
 from django.db import models
 # from home.logic import LinkedList, MergeSort
@@ -63,13 +64,23 @@ from django.db import models
 # Create your models here.
 
 >>>>>>> parent of 3efaa2e (Development Break)
+=======
+from django.db import models
+
+# Create your models here.
+
+>>>>>>> parent of 3efaa2e... Development Break
 class BugTickets(models.Model):
     title = models.CharField(max_length=122,)
     description = models.TextField()
     priority = models.IntegerField()
+<<<<<<< HEAD
 <<<<<<< HEAD
     date = models.DateField()
 >>>>>>> parent of 3efaa2e (Development Break)
 =======
     date = models.DateField()
 >>>>>>> parent of 3efaa2e (Development Break)
+=======
+    date = models.DateField()
+>>>>>>> parent of 3efaa2e... Development Break
