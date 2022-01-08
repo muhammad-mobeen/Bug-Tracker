@@ -18,13 +18,16 @@ from django.urls import path
 from home import views
 
 urlpatterns = [
-    path("login/", views.loginPage, name="login"),
-    path("logout/", views.logoutUser, name="logout"),
-    path('', views.index, name='home'),
-    path('index/', views.index, name='home'),
-    path("show/", views.show, name="show"),
-    path("edit-ticket/<int:id>/", views.edit, name="edit-ticket"),
-    path("update-ticket/<int:id>/", views.update, name="update-ticket"),
-    path("delete-ticket/<int:id>/", views.delete, name="delete-ticket"),
+    path('', views.hola, name='Hola!!!' ),
+    # path("login/", views.loginPage, name="login"),
+    # path("logout/", views.logoutUser, name="logout"),
+    # path('', views.index, name='home'),
+    # path('index/', views.index, name='home'),
+    # path("show/", views.show, name="show"),
+    # path("edit-ticket/<int:id>/", views.edit, name="edit-ticket"),
+    # path("update-ticket/<int:id>/", views.update, name="update-ticket"),
+    # path("delete-ticket/<int:id>/", views.delete, name="delete-ticket"),
+
+    
     # path("sort-tickets/", views.sorter, name="sort-tickets"),
 ]
