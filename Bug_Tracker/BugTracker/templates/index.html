@@ -16,7 +16,9 @@
     <link href="/static/vendor/mdi-font/css/material-design-iconic-font.min.css" rel="stylesheet" media="all">
     <link href="/static/vendor/font-awesome-4.7/css/font-awesome.min.css" rel="stylesheet" media="all">
     <!-- Font special for pages-->
-    <link href="https://fonts.googleapis.com/css?family=Poppins:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css?family=Poppins:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i"
+        rel="stylesheet">
 
     <!-- Vendor CSS-->
     <link href="/static/vendor/select2/select2.min.css" rel="stylesheet" media="all">
@@ -31,52 +33,35 @@
         <div class="wrapper wrapper--w680">
             <div class="card card-4">
                 <div class="card-body">
-                    <h2 class="title">
-                        {% if ticket == None %}
-                        Generate Ticket
-                        {% else %}
-                        Update Ticket
-                        {% endif %}
-                    </h2>
-                    <form method="POST" class="post-form" action="{% if ticket == None %}{% url 'home' %}{% else %}{% url 'update-ticket' ticket.id %}{% endif %}">
+                    <h2 class="title">Generate Bug Ticket</h2>
+                    <form method="POST" action="/index">
                         {% csrf_token %}
                         <div class="input-group">
                             <label class="label">Title*</label>
-                            <input class="input--style-4" type="text" name="title" placeholder="title of your bug..." value="{{ ticket.title }}" required>
+                            <input class="input--style-4" type="text" name="title" placeholder="title of your bug...">
                         </div>
                         <div class="input-group">
                             <label class="label">Description</label>
                             <textarea class="form-control input--style-4" style="outline: none; border: none;"
-                                id="description" name="description" placeholder="describe your bug briefly........" rows="3" cols="55">{{ ticket.title }}</textarea>
+                                id="description" name="description" placeholder="describe your bug briefly........" rows="3" cols="55"></textarea>
                         </div>
                         <div class="input-group">
                             <label class="label">Priority</label>
                             <div class="rs-select2 js-select-simple select--no-search">
-                                <select name="priority" required>
+                                <select name="priority">
                                     <option disabled="disabled" selected="selected">Choose option</option>
-                                    <option {% if ticket.priority == 4 %}selected{% endif %}>Low</option>
-                                    <option {% if ticket.priority == 1 %}selected{% endif %}>Urgent</option>
-                                    <option {% if ticket.priority == 2 %}selected{% endif %}>High</option>
-                                    <option {% if ticket.priority == 3 %}selected{% endif %}>Medium</option>
+                                    <option>Urgent</option>
+                                    <option>High</option>
+                                    <option>Medium</option>
+                                    <option>Low</option>
                                 </select>
                                 <div class="select-dropdown"></div>
                             </div>
                         </div>
                         <div class="p-t-15">
-                            <button class="btn btn--radius-2 btn--{% if ticket == None %}blue{% else %}green{% endif %}" type="submit">
-                                {% if ticket == None %}
-                                Submit
-                                {% else %}
-                                Update
-                                {% endif %}
-                            </button>
+                            <button class="btn btn--radius-2 btn--blue" type="submit">Submit</button>
                         </div>
                     </form>
-                    {% if request.user.is_authenticated %}
-                    <a href="{% url 'logout' %}">Logout</a>
-                    {% else %}
-                    <a href="{% url 'login' %}">Login</a>
-                    {% endif %}
                 </div>
             </div>
         </div>

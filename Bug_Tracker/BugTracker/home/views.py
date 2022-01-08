@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 from django.shortcuts import render, redirect, HttpResponse
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
@@ -110,3 +111,29 @@ from django.contrib.auth import authenticate, login, logout
 # def updateSortedBugTickets():
 #     SortedBugTickets.chandiyo.all().delete()
 #     SortedBugTickets.chandiyo.testSaver()
+=======
+from django.shortcuts import render, HttpResponse
+from datetime import datetime
+from home.models import BugTickets
+
+# Create your views here.
+def index(request):
+    if request.method == "POST":
+        title = request.POST.get('title')
+        description = request.POST.get('description')
+
+        #Logic for priorit from string to int
+        if request.POST.get('priority') == "Urgent":
+            priority = 1
+        elif request.POST.get('priority') == "High":
+            priority = 2
+        elif request.POST.get('priority') == "Medium":
+            priority = 3
+        else:
+            priority = 4
+        
+        index = BugTickets(title=title, description=description, priority=priority, date=datetime.today())
+        index.save()
+
+    return render(request, 'index.html')
+>>>>>>> parent of 3efaa2e (Development Break)

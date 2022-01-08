@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # from django.forms import ModelForm, Textarea
 from django.db import models
 # from home.logic import LinkedList, MergeSort
@@ -50,3 +51,14 @@ class User(AbstractUser):
 
 #     class Meta:
 #         db_table = "sorted_bug_Tickets"
+=======
+from django.db import models
+
+# Create your models here.
+
+class BugTickets(models.Model):
+    title = models.CharField(max_length=122,)
+    description = models.TextField()
+    priority = models.IntegerField()
+    date = models.DateField()
+>>>>>>> parent of 3efaa2e (Development Break)
