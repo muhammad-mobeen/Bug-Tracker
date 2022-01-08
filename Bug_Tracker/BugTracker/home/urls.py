@@ -19,6 +19,7 @@ from home import views
 
 urlpatterns = [
 <<<<<<< HEAD
+<<<<<<< HEAD
     path('', views.hola, name='Hola!!!' ),
     # path("login/", views.loginPage, name="login"),
     # path("logout/", views.logoutUser, name="logout"),
@@ -31,6 +32,10 @@ urlpatterns = [
 
     
     # path("sort-tickets/", views.sorter, name="sort-tickets"),
+=======
+    path('', views.index, name='home'),
+    path('index', views.index, name='home'),
+>>>>>>> parent of 3efaa2e (Development Break)
 =======
     path('', views.index, name='home'),
     path('index', views.index, name='home'),

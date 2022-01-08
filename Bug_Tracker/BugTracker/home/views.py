@@ -1,4 +1,5 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
 from django.shortcuts import render, redirect, HttpResponse
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
@@ -117,6 +118,13 @@ from datetime import datetime
 from home.models import BugTickets
 
 # Create your views here.
+=======
+from django.shortcuts import render, HttpResponse
+from datetime import datetime
+from home.models import BugTickets
+
+# Create your views here.
+>>>>>>> parent of 3efaa2e (Development Break)
 def index(request):
     if request.method == "POST":
         title = request.POST.get('title')
@@ -135,5 +143,9 @@ def index(request):
         index = BugTickets(title=title, description=description, priority=priority, date=datetime.today())
         index.save()
 
+<<<<<<< HEAD
+    return render(request, 'index.html')
+>>>>>>> parent of 3efaa2e (Development Break)
+=======
     return render(request, 'index.html')
 >>>>>>> parent of 3efaa2e (Development Break)
