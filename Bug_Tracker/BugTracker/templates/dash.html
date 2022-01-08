@@ -1,0 +1,519 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta http-equiv="x-ua-compatible" content="ie=edge" />
+    <title>Material Design for Bootstrap</title>
+    <!-- MDB icon -->
+    <link rel="icon" href="/static/img/mdb-favicon.ico" type="image/x-icon" />
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.2/css/all.css" />
+    <!-- Google Fonts Roboto -->
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap" />
+    <!-- MDB -->
+    <link rel="stylesheet" href="/static/css/mdb.min.css" />
+    <!-- Boxicons CDN Link -->
+    <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
+    <!-- Custom Css -->
+    <link rel="stylesheet" href="/static/css/dash.css">
+    <link rel="stylesheet" href="/static/css/navbar.css">
+</head>
+
+<body>
+    <!-- Start your project here-->
+    <div class="sidebar">
+        <div class="logo-details">
+            <i class='bx bxl-c-plus-plus icon'></i>
+            <div class="logo_name">CodingLab</div>
+            <i class='bx bx-menu' id="btn"></i>
+        </div>
+        <ul class="nav-list">
+            <li>
+                <i class='bx bx-search'></i>
+                <input type="text" placeholder="Search...">
+                <span class="tooltip">Search</span>
+            </li>
+            <li>
+                <a href="#">
+                    <i class='bx bx-grid-alt'></i>
+                    <span class="links_name">Dashboard</span>
+                </a>
+                <span class="tooltip">Dashboard</span>
+            </li>
+            <li>
+                <a href="#">
+                    <i class='bx bx-user'></i>
+                    <span class="links_name">User</span>
+                </a>
+                <span class="tooltip">User</span>
+            </li>
+            <li>
+                <a href="#">
+                    <i class='bx bx-chat'></i>
+                    <span class="links_name">Messages</span>
+                </a>
+                <span class="tooltip">Messages</span>
+            </li>
+            <li>
+                <a href="#">
+                    <i class='bx bx-pie-chart-alt-2'></i>
+                    <span class="links_name">Analytics</span>
+                </a>
+                <span class="tooltip">Analytics</span>
+            </li>
+            <li>
+                <a href="#">
+                    <i class='bx bx-folder'></i>
+                    <span class="links_name">File Manager</span>
+                </a>
+                <span class="tooltip">Files</span>
+            </li>
+            <li>
+                <a href="#">
+                    <i class='bx bx-cart-alt'></i>
+                    <span class="links_name">Order</span>
+                </a>
+                <span class="tooltip">Order</span>
+            </li>
+            <li>
+                <a href="#">
+                    <i class='bx bx-heart'></i>
+                    <span class="links_name">Saved</span>
+                </a>
+                <span class="tooltip">Saved</span>
+            </li>
+            <li>
+                <a href="#">
+                    <i class='bx bx-cog'></i>
+                    <span class="links_name">Setting</span>
+                </a>
+                <span class="tooltip">Setting</span>
+            </li>
+            <li class="profile">
+                <div class="profile-details">
+                    <!--<img src="profile.jpg" alt="profileImg">-->
+                    <div class="name_job">
+                        <div class="name">Prem Shahi</div>
+                        <div class="job">Web designer</div>
+                    </div>
+                </div>
+                <i class='bx bx-log-out' id="log_out"></i>
+            </li>
+        </ul>
+    </div>
+
+    <!-- Sidenav-->
+    <!-- <nav id="sidenav-4" class="sidenav bg-glass opacity-100" data-mdb-color="light" data-mdb-mode="side"
+        data-mdb-slim="true" data-mdb-slim-collapsed="true" data-mdb-content="#slim-content">
+        <div class="sidenav-item mb-2">
+            <a id="slim-toggler" class="sidenav-link d-flex justify-content-center border-bottom">
+                <i class="fas fa-chevron-circle-right"></i>
+            </a>
+        </div>
+
+        <ul class="sidenav-menu">
+            <li class="sidenav-item">
+                <a class="sidenav-link">
+                    <i class="fas fa-chart-area fa-fw me-3"></i><span data-mdb-slim="false">Website traffic</span></a>
+            </li>
+            <li class="sidenav-item">
+                <a class="sidenav-link">
+                    <i class="fas fa-chart-line fa-fw me-3"></i><span data-mdb-slim="false">Analytics</span></a>
+            </li>
+            <li class="sidenav-item">
+                <a class="sidenav-link">
+                    <i class="fas fa-chart-pie fa-fw me-3"></i><span data-mdb-slim="false">SEO</span></a>
+            </li>
+            <li class="sidenav-item">
+                <a class="sidenav-link">
+                    <i class="fas fa-money-bill fa-fw me-3"></i><span data-mdb-slim="false">Sales</span></a>
+            </li>
+            <li class="sidenav-item">
+                <a class="sidenav-link">
+                    <i class="fas fa-users fa-fw me-3"></i><span data-mdb-slim="false">Users</span></a>
+            </li>
+        </ul>
+    </nav> -->
+    <!-- Sidenav-->
+
+    <!-- Main content -->
+    <section class="home-section">
+        <div class="container py-4">
+            <!-- Section: Summary -->
+            <section class="mb-5">
+                <div class="row gx-xl-5">
+                    <div class="col-xl-3 col-md-6 mb-4 mb-xl-0">
+                        <!-- Card -->
+                        <a class="
+                    d-flex
+                    align-items-center
+                    p-4
+                    bg-glass
+                    shadow-4-strong
+                    rounded-6
+                    text-reset
+                    ripple
+                    " href="#" data-ripple-color="hsl(0, 0%, 75%)">
+                            <div class="p-3 bg-theme rounded-4">
+                                <i class="fas fa-users fa-lg text-white fa-fw"></i>
+                            </div>
+
+                            <div class="ms-4">
+                                <p class="text-muted mb-2">Users</p>
+                                <p class="mb-0">
+                                    <span class="h5 me-2">14 567 </span>
+                                    <small class="text-success text-sm"><i
+                                            class="fas fa-arrow-up fa-sm me-1"></i>13,48%</small>
+                                </p>
+                            </div>
+                        </a>
+                        <!-- Card -->
+                    </div>
+
+                    <div class="col-xl-3 col-md-6 mb-4 mb-xl-0">
+                        <!-- Card -->
+                        <a class="
+                    d-flex
+                    align-items-center
+                    p-4
+                    bg-glass
+                    shadow-4-strong
+                    rounded-6
+                    text-reset
+                    ripple
+                    " href="#" data-ripple-color="hsl(0, 0%, 75%)">
+                            <div class="p-3 bg-theme rounded-4">
+                                <i class="fas fa-file-alt fa-lg text-white fa-fw"></i>
+                            </div>
+
+                            <div class="ms-4">
+                                <p class="text-muted mb-2">Page views</p>
+                                <p class="mb-0">
+                                    <span class="h5 me-2">51 354</span>
+                                    <small class="text-success text-sm"><i
+                                            class="fas fa-arrow-up fa-sm me-1"></i>23,58%</small>
+                                </p>
+                            </div>
+                        </a>
+                        <!-- Card -->
+                    </div>
+
+                    <div class="col-xl-3 col-md-6 mb-4 mb-xl-0">
+                        <!-- Card -->
+                        <a class="
+                    d-flex
+                    align-items-center
+                    p-4
+                    bg-glass
+                    shadow-4-strong
+                    rounded-6
+                    text-reset
+                    ripple
+                    " href="#" data-ripple-color="hsl(0, 0%, 75%)">
+                            <div class="p-3 bg-theme rounded-4">
+                                <i class="fas fa-clock fa-lg text-white fa-fw"></i>
+                            </div>
+
+                            <div class="ms-4">
+                                <p class="text-muted mb-2">Average time</p>
+                                <p class="mb-0">
+                                    <span class="h5 me-2">00:04:20</span>
+                                    <small class="text-danger text-sm"><i
+                                            class="fas fa-arrow-down fa-sm me-1"></i>23,58%</small>
+                                </p>
+                            </div>
+                        </a>
+                        <!-- Card -->
+                    </div>
+
+                    <div class="col-xl-3 col-md-6 mb-4 mb-xl-0">
+                        <!-- Card -->
+                        <a class="
+                    d-flex
+                    align-items-center
+                    p-4
+                    bg-glass
+                    shadow-4-strong
+                    rounded-6
+                    text-reset
+                    ripple
+                    " href="#" data-ripple-color="hsl(0, 0%, 75%)">
+                            <div class="p-3 bg-theme rounded-4">
+                                <i class="fas fa-sign-out-alt fa-lg text-white fa-fw"></i>
+                            </div>
+
+                            <div class="ms-4">
+                                <p class="text-muted mb-2">Bounce rate</p>
+                                <p class="mb-0">
+                                    <span class="h5 me-2">32.35% </span>
+                                    <small class="text-success text-sm"><i
+                                            class="fas fa-arrow-down fa-sm me-1"></i>23,58%</small>
+                                </p>
+                            </div>
+                        </a>
+                        <!-- Card -->
+                    </div>
+                </div>
+            </section>
+            <!-- Section: Summary -->
+
+            <!-- Section: Table -->
+            <section class="mb-5">
+                <div class="table-responsive bg-glass shadow-4-strong rounded-6">
+                    <table class="
+                    table table-borderless table-hover
+                    align-middle
+                    mb-0
+                    text-white
+                    ">
+                        <thead class="">
+                            <tr>
+                                <th>Name</th>
+                                <th>Title</th>
+                                <th>Status</th>
+                                <th>Position</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody class="">
+                            <tr class="text-white">
+                                <td>
+                                    <div class="d-flex align-items-center">
+                                        <img src="https://mdbootstrap.com/img/new/avatars/8.jpg" alt=""
+                                            style="width: 45px; height: 45px" class="rounded-circle" />
+                                        <div class="ms-3">
+                                            <p class="fw-bold mb-1">John Doe</p>
+                                            <p class="text-muted mb-0">john.doe@gmail.com</p>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td>
+                                    <p class="fw-bold mb-1">Software engineer</p>
+                                    <p class="text-muted mb-0">IT department</p>
+                                </td>
+                                <td>
+                                    <span class="badge badge-success rounded-pill">Active</span>
+                                </td>
+                                <td>Senior</td>
+                                <td>
+                                    <button type="button" class="btn btn-outline-white btn-sm btn-rounded">
+                                        Edit
+                                    </button>
+                                </td>
+                            </tr>
+                            <tr class="text-white">
+                                <td>
+                                    <div class="d-flex align-items-center">
+                                        <img src="https://mdbootstrap.com/img/new/avatars/6.jpg" class="rounded-circle"
+                                            alt="" style="width: 45px; height: 45px" />
+                                        <div class="ms-3">
+                                            <p class="fw-bold mb-1">Alex Ray</p>
+                                            <p class="text-muted mb-0">alex.ray@gmail.com</p>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td>
+                                    <p class="fw-normal mb-1">Consultant</p>
+                                    <p class="text-muted mb-0">Finance</p>
+                                </td>
+                                <td>
+                                    <span class="badge badge-primary rounded-pill">Onboarding</span>
+                                </td>
+                                <td>Junior</td>
+                                <td>
+                                    <button type="button" class="btn btn-outline-white btn-rounded btn-sm fw-bold">
+                                        Edit
+                                    </button>
+                                </td>
+                            </tr>
+                            <tr class="text-white">
+                                <td>
+                                    <div class="d-flex align-items-center">
+                                        <img src="https://mdbootstrap.com/img/new/avatars/7.jpg" class="rounded-circle"
+                                            alt="" style="width: 45px; height: 45px" />
+                                        <div class="ms-3">
+                                            <p class="fw-bold mb-1">Kate Hunington</p>
+                                            <p class="text-muted mb-0">kate.hunington@gmail.com</p>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td>
+                                    <p class="fw-normal mb-1">Designer</p>
+                                    <p class="text-muted mb-0">UI/UX</p>
+                                </td>
+                                <td>
+                                    <span class="badge badge-warning rounded-pill">Awaiting</span>
+                                </td>
+                                <td>Senior</td>
+                                <td>
+                                    <button type="button" class="btn btn-outline-white btn-rounded btn-sm fw-bold">
+                                        Edit
+                                    </button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+            <!-- Section: Table -->
+
+            <!-- Section: Visualization -->
+            <section>
+                <div class="row gx-lg-5">
+                    <div class="col-lg-6 col-md-12 mb-4 mb-lg-0">
+                        <!-- Card -->
+                        <div class="bg-glass shadow-4-strong rounded-6 h-100">
+                            <!-- Card header -->
+                            <div class="p-4 border-bottom">
+                                <div class="row align-items-center">
+                                    <div class="col-6 mb-4 mb-md-0">
+                                        <p class="text-muted mb-2">Users</p>
+                                        <p class="mb-0">
+                                            <span class="h5 me-2">14 567 </span>
+                                            <small class="text-success text-sm"><i
+                                                    class="fas fa-arrow-up fa-sm me-1"></i>13,48%</small>
+                                        </p>
+                                    </div>
+
+                                    <div class="col-6 mb-4 mb-md-0 text-end">
+                                        <a class="btn btn-outline-white btn-rounded" href="#" role="button">Details</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Card header -->
+
+                            <!-- Card body -->
+                            <div class="p-4">
+                                <canvas id="line-chart" height="200px"></canvas>
+                            </div>
+                            <!-- Card body -->
+                        </div>
+                        <!-- Card -->
+                    </div>
+
+                    <div class="col-lg-6 mb-4 mb-lg-0">
+                        <!-- Card -->
+                        <div class="bg-glass shadow-4-strong rounded-6">
+                            <!-- Card header -->
+                            <div class="p-4 border-bottom">
+                                <div class="row align-items-center">
+                                    <div class="col-6 mb-4 mb-md-0">
+                                        <p class="text-muted mb-2">Location</p>
+                                        <p class="mb-0">
+                                            <span class="h5 me-2">Top country: USA </span>
+                                        </p>
+                                    </div>
+
+                                    <div class="col-6 mb-4 mb-md-0 text-end">
+                                        <a class="btn btn-outline-white btn-rounded" href="#" role="button">Details</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Card header -->
+
+                            <!-- Card body -->
+                            <div class="p-4 pb-0">
+                                <div class="vector-map" id="my-map"></div>
+                            </div>
+                            <!-- Card body -->
+                        </div>
+                        <!-- Card -->
+                    </div>
+                </div>
+            </section>
+            <!-- Section: Visualization -->
+        </div>
+    </section>
+    <!-- Footer starts here -->
+    <footer class="footer-section text-white pt-5 pb-4 mt-5">
+
+        <div class="container text-md-left">
+
+          <hr class="mb-4">
+      
+          <div class="row align-items-center">
+      
+            <div class="col-md-7 col-lg-8">
+                <h1>Markhor Inc.</h1>Copyright ©2022 All rights reserved
+              <!-- <p>Copyright ©2021 All rights reserved by:
+                <a href="#" style="text-decoration: none;">
+                  <strong style="color: rgb(62, 255, 120);">Royal Markhor - Blockchain Banking</strong>
+                </a></p> -->
+              
+            </div>
+      
+            <div class="col-md-5 col-lg-4">
+              <div class="text-center text-md-right">
+      
+                <ul class="list-unstyled list-inline">
+                  <li class="list-inline-item">
+                    <a href="#" class="btn-floating btn-sm text-white" style="font-size: 23px;"><i class="fab fa-facebook"></i></a>
+                  </li>
+                  <li class="list-inline-item">
+                    <a href="#" class="btn-floating btn-sm text-white" style="font-size: 23px;"><i class="fab fa-twitter"></i></a>
+                  </li>
+                  <li class="list-inline-item">
+                    <a href="#" class="btn-floating btn-sm text-white" style="font-size: 23px;"><i class="fab fa-linkedin-in"></i></a>
+                  </li>
+                  <li class="list-inline-item">
+                    <a href="#" class="btn-floating btn-sm text-white" style="font-size: 23px;"><i class="fab fa-youtube"></i></a>
+                  </li>
+                  <li class="list-inline-item">
+                    <a href="#" class="btn-floating btn-sm text-white" style="font-size: 23px;"><i class="fa fa-university" aria-hidden="true"></i></a>
+                  </li>
+                  <li class="list-inline-item">
+                    <a href="#" class="btn-floating btn-sm text-white" style="font-size: 23px;"><i class="fab fa-btc" aria-hidden="true"></i>
+                    </a>
+                  </li>
+                  <li class="list-inline-item">
+                    <a href="https://ispr.gov.pk" target="_blank" class="btn-floating btn-sm text-white" style="font-size: 23px;"><img src="img/isi.png" width="50" height="54"></a>
+                  </li>
+                </ul>
+                
+              </div>
+              
+            </div>
+            
+          </div>
+      
+        </div>
+        
+      </footer>
+      <!-- Footer ends here -->
+    <!-- Main content -->
+    <!-- End your project here-->
+
+    <!-- MDB -->
+    <script type="text/javascript" src="/static/js/mdb.min.js"></script>
+    <!-- Custom scripts -->
+    <script type="text/javascript" src="/static/js/dash.js"></script>
+    <script>
+        let sidebar = document.querySelector(".sidebar");
+        let closeBtn = document.querySelector("#btn");
+        let searchBtn = document.querySelector(".bx-search");
+
+        closeBtn.addEventListener("click", () => {
+            sidebar.classList.toggle("open");
+            menuBtnChange(); //calling the function(optional)
+        });
+
+        searchBtn.addEventListener("click", () => { // Sidebar open when you click on the search iocn
+            sidebar.classList.toggle("open");
+            menuBtnChange(); //calling the function(optional)
+        });
+
+        // following are the code to change sidebar button(optional)
+        function menuBtnChange() {
+            if (sidebar.classList.contains("open")) {
+                closeBtn.classList.replace("bx-menu", "bx-menu-alt-right"); //replacing the iocns class
+            } else {
+                closeBtn.classList.replace("bx-menu-alt-right", "bx-menu"); //replacing the iocns class
+            }
+        }
+    </script>
+</body>
+
+</html>
