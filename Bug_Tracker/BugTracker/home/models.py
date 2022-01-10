@@ -1,8 +1,19 @@
 from django.forms import ModelForm, Textarea
 from django.db import models
 from home.logic import LinkedList, MergeSort
-from django.contrib.auth.models import User
+from django.contrib.auth.models import AbstractUser
+
 # Create your models here.
+
+class User(AbstractUser):
+    name = models.CharField(max_length=200, null=True)
+    email = models.EmailField(unique=True, null=True)
+    bio = models.TextField(null=True)
+
+    avatar = models.ImageField(null=True, default="markhor.jpg")
+
+    USERNAME_FIELD = 'email'
+    REQUIRED_FIELDS = ['username']
 
 class BugTickets(models.Model):
     title = models.CharField(max_length=122,)

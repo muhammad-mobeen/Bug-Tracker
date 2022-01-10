@@ -1,0 +1,367 @@
+{% extends 'main.html' %}
+
+{% block title %}Dashboard{% endblock %}
+
+{% block content %}
+
+<div class="container py-4">
+    <div class="mx-4 mb-3">
+        <h1>Dashboard</h1>
+    </div>
+    <!-- Section: Summary -->
+    <section class="mb-5">
+        <div class="row gx-xl-5">
+            <div class="col-xl-3 col-md-6 mb-4 mb-xl-0">
+                <!-- Card -->
+                <a class="d-flex align-items-center p-4 bg-glass shadow-4-strong rounded-6 text-reset ripple" href="#" data-ripple-color="hsl(0, 0%, 75%)">
+                    <div class="p-3 bg-theme rounded-4">
+                        <i class="fas fa-users fa-lg text-white fa-fw"></i>
+                    </div>
+
+                    <div class="ms-4">
+                        <p class="text-muted mb-2">Total Bugs</p>
+                        <p class="mb-0">
+                            <span class="h5 me-2">14 567 </span>
+                            <small class="text-success text-sm"><i class="fas fa-arrow-up fa-sm me-1"></i>13,48%</small>
+                        </p>
+                    </div>
+                </a>
+                <!-- Card -->
+            </div>
+
+            <div class="col-xl-3 col-md-6 mb-4 mb-xl-0">
+                <!-- Card -->
+                <a class="d-flex align-items-center p-4 bg-glass shadow-4-strong rounded-6 text-reset ripple" href="#" data-ripple-color="hsl(0, 0%, 75%)">
+                    <div class="p-3 bg-theme rounded-4">
+                        <i class="fas fa-file-alt fa-lg text-white fa-fw"></i>
+                    </div>
+
+                    <div class="ms-4">
+                        <p class="text-muted mb-2">Un-Opened</p>
+                        <p class="mb-0">
+                            <span class="h5 me-2">51 354</span>
+                            <small class="text-success text-sm"><i class="fas fa-arrow-up fa-sm me-1"></i>23,58%</small>
+                        </p>
+                    </div>
+                </a>
+                <!-- Card -->
+            </div>
+
+            <div class="col-xl-3 col-md-6 mb-4 mb-xl-0">
+                <!-- Card -->
+                <a class="d-flex align-items-center p-4 bg-glass shadow-4-strong rounded-6 text-reset ripple" href="#" data-ripple-color="hsl(0, 0%, 75%)">
+                    <div class="p-3 bg-theme rounded-4">
+                        <i class="fas fa-clock fa-lg text-white fa-fw"></i>
+                    </div>
+
+                    <div class="ms-4">
+                        <p class="text-muted mb-2">In Progress</p>
+                        <p class="mb-0">
+                            <span class="h5 me-2">51</span>
+                            <small class="text-danger text-sm"><i
+                                    class="fas fa-arrow-down fa-sm me-1"></i>23,58%</small>
+                        </p>
+                    </div>
+                </a>
+                <!-- Card -->
+            </div>
+
+            <div class="col-xl-3 col-md-6 mb-4 mb-xl-0">
+                <!-- Card -->
+                <a class="d-flex align-items-center p-4 bg-glass shadow-4-strong rounded-6 text-reset ripple" href="#" data-ripple-color="hsl(0, 0%, 75%)">
+                    <div class="p-3 bg-theme rounded-4">
+                        <i class="fas fa-sign-out-alt fa-lg text-white fa-fw"></i>
+                    </div>
+
+                    <div class="ms-4">
+                        <p class="text-muted mb-2">Completed/Closed</p>
+                        <p class="mb-0">
+                            <span class="h5 me-2">32.35% </span>
+                            <small class="text-success text-sm"><i
+                                    class="fas fa-arrow-down fa-sm me-1"></i>23,58%</small>
+                        </p>
+                    </div>
+                </a>
+                <!-- Card -->
+            </div>
+        </div>
+    </section>
+    <!-- Section: Summary -->
+
+    <!-- Section: In Progress Table -->
+    <div class="mx-4 mb-3">
+        <h3>In Progress/Opened Tickets</h3>
+    </div>
+    <section class="mb-5">
+        <div class="table-responsive bg-glass shadow-4-strong rounded-6">
+            <table class="
+            table table-borderless table-hover
+            align-middle
+            mb-0
+            text-white
+            ">
+                <thead class="">
+                    <tr>
+                        <th>#</th>
+                        <th>Bug ID</th>
+                        <th>Title</th>
+                        <th>Description</th>
+                        <th>Priority</th>
+                        <th>Assigned to</th>
+                        <th>Reported by</th>
+                        <th>Updated On</th>
+                        <th>Created On</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody class="">
+                    <tr class="text-white">
+                        <td>#</td>
+                        <td>#1</td>
+                        <td>
+                            <p class="fw-bold" style="min-width: 120px;">This is Bug Title</p>
+                        </td>
+                        <td>
+                            <p style="min-width: 200px;">This is Discription of your lovely bug ticket generated by you!</p>
+                        </td>
+                        <td>
+                            <span class="badge badge-danger rounded-pill">Urgent</span>
+                        </td>
+                        <td>
+                            <div class="d-flex align-items-center">
+                                <img src="https://mdbootstrap.com/img/new/avatars/8.jpg" alt=""
+                                    style="width: 25px; height: 25px" class="rounded-circle" />
+                                <div class="ms-3">
+                                    <p class="fw-bold mb-1">@John Doe</p>
+                                    <p class="text-muted mb-0">john.doe@gmail.com</p>
+                                </div>
+                            </div>
+                            <div class="d-flex align-items-center">
+                                <img src="https://mdbootstrap.com/img/new/avatars/8.jpg" alt=""
+                                    style="width: 25px; height: 25px" class="rounded-circle" />
+                                <div class="ms-3">
+                                    <p class="fw-bold mb-1">@John Doe</p>
+                                    <p class="text-muted mb-0">john.doe@gmail.com</p>
+                                </div>
+                            </div>
+                        </td>
+                        <td>
+                            <div class="d-flex align-items-center">
+                                <img src="https://mdbootstrap.com/img/new/avatars/8.jpg" alt=""
+                                    style="width: 25px; height: 25px" class="rounded-circle" />
+                                <div class="ms-3">
+                                    <p class="fw-bold mb-1">@John Doe</p>
+                                    <p class="text-muted mb-0">john.doe@gmail.com</p>
+                                </div>
+                            </div>
+                        </td>
+                        <td>few minutes ago</td>
+                        <td>few hours ago</td>
+                        <td>
+                            <div class="d-flex flex-column align-items-center" style="min-width: 90px;">
+                                <div class="m-1">
+                                    <button type="button" class="btn btn-outline-success btn-sm btn-rounded">
+                                        <i class="fas fa-check me-1"></i>Done
+                                    </button>
+                                </div>
+                                <div class="m-1">
+                                    <button type="button" class="btn btn-outline-white btn-sm btn-rounded">
+                                        Edit
+                                    </button>
+                                </div>
+                                <div class="m-1">
+                                    <button type="button" class="btn btn-outline-danger btn-sm btn-rounded">
+                                        Delete
+                                    </button>
+                                </div>
+                            </div>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </section>
+    <!-- Section: In Progress Table -->
+
+    <!-- Section: Un-Opened Table -->
+    <div class="mx-4 mb-3">
+        <h3>Un-Opened Tickets</h3>
+    </div>
+    <section class="mb-5">
+        <div class="table-responsive bg-glass shadow-4-strong rounded-6">
+            <table class="
+            table table-borderless table-hover
+            align-middle
+            mb-0
+            text-white
+            ">
+                <thead class="">
+                    <tr>
+                        <th>#</th>
+                        <th>Bug ID</th>
+                        <th>Title</th>
+                        <th>Description</th>
+                        <th>Priority</th>
+                        <th>Assigned to</th>
+                        <th>Reported by</th>
+                        <th>Updated On</th>
+                        <th>Created On</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody class="">
+                    <tr class="text-white">
+                        <td>#</td>
+                        <td>#1</td>
+                        <td>
+                            <p class="fw-bold mb-1">This is Bug Title</p>
+                        </td>
+                        <td>
+                            <p>This is Discription of your lovely bug ticket generated by you!</p>
+                        </td>
+                        <td>
+                            <span class="badge badge-danger rounded-pill">Urgent</span>
+                        </td>
+                        <td>
+                            <div class="d-flex align-items-center">
+                                <img src="https://mdbootstrap.com/img/new/avatars/8.jpg" alt=""
+                                    style="width: 25px; height: 25px" class="rounded-circle" />
+                                <div class="ms-3">
+                                    <p class="fw-bold mb-1">@John Doe</p>
+                                    <p class="text-muted mb-0">john.doe@gmail.com</p>
+                                </div>
+                            </div>
+                            <div class="d-flex align-items-center">
+                                <img src="https://mdbootstrap.com/img/new/avatars/8.jpg" alt=""
+                                    style="width: 25px; height: 25px" class="rounded-circle" />
+                                <div class="ms-3">
+                                    <p class="fw-bold mb-1">@John Doe</p>
+                                    <p class="text-muted mb-0">john.doe@gmail.com</p>
+                                </div>
+                            </div>
+                        </td>
+                        <td>
+                            <div class="d-flex align-items-center">
+                                <img src="https://mdbootstrap.com/img/new/avatars/8.jpg" alt=""
+                                    style="width: 25px; height: 25px" class="rounded-circle" />
+                                <div class="ms-3">
+                                    <p class="fw-bold mb-1">@John Doe</p>
+                                    <p class="text-muted mb-0">john.doe@gmail.com</p>
+                                </div>
+                            </div>
+                        </td>
+                        <td>few minutes ago</td>
+                        <td>few hours ago</td>
+                        <td>
+                            <div class="d-flex align-items-center">
+                                <div class="m-1">
+                                    <button type="button" class="btn btn-outline-white btn-sm btn-rounded">
+                                        Edit
+                                    </button>
+                                </div>
+                                <div class="m-1">
+                                    <button type="button" class="btn btn-outline-danger btn-sm btn-rounded">
+                                        Delete
+                                    </button>
+                                </div>
+                            </div>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </section>
+    <!-- Section: Un-Opened Table -->
+
+    <!-- Section: Completed Table -->
+    <div class="mx-4 mb-3">
+        <h3>Completed/Closed Tickets</h3>
+    </div>
+    <section class="mb-5">
+        <div class="table-responsive bg-glass shadow-4-strong rounded-6">
+            <table class="
+            table table-borderless table-hover
+            align-middle
+            mb-0
+            text-white
+            ">
+                <thead class="">
+                    <tr>
+                        <th>#</th>
+                        <th>Bug ID</th>
+                        <th>Title</th>
+                        <th>Description</th>
+                        <th>Priority</th>
+                        <th>Assigned to</th>
+                        <th>Reported by</th>
+                        <th>Updated On</th>
+                        <th>Created On</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody class="">
+                    <tr class="text-white">
+                        <td>#</td>
+                        <td>#1</td>
+                        <td>
+                            <p class="fw-bold mb-1">This is Bug Title</p>
+                        </td>
+                        <td>
+                            <p>This is Discription of your lovely bug ticket generated by you!</p>
+                        </td>
+                        <td>
+                            <span class="badge badge-danger rounded-pill">Urgent</span>
+                        </td>
+                        <td>
+                            <div class="d-flex align-items-center">
+                                <img src="https://mdbootstrap.com/img/new/avatars/8.jpg" alt=""
+                                    style="width: 25px; height: 25px" class="rounded-circle" />
+                                <div class="ms-3">
+                                    <p class="fw-bold mb-1">@John Doe</p>
+                                    <p class="text-muted mb-0">john.doe@gmail.com</p>
+                                </div>
+                            </div>
+                            <div class="d-flex align-items-center">
+                                <img src="https://mdbootstrap.com/img/new/avatars/8.jpg" alt=""
+                                    style="width: 25px; height: 25px" class="rounded-circle" />
+                                <div class="ms-3">
+                                    <p class="fw-bold mb-1">@John Doe</p>
+                                    <p class="text-muted mb-0">john.doe@gmail.com</p>
+                                </div>
+                            </div>
+                        </td>
+                        <td>
+                            <div class="d-flex align-items-center">
+                                <img src="https://mdbootstrap.com/img/new/avatars/8.jpg" alt=""
+                                    style="width: 25px; height: 25px" class="rounded-circle" />
+                                <div class="ms-3">
+                                    <p class="fw-bold mb-1">@John Doe</p>
+                                    <p class="text-muted mb-0">john.doe@gmail.com</p>
+                                </div>
+                            </div>
+                        </td>
+                        <td>few minutes ago</td>
+                        <td>few hours ago</td>
+                        <td>
+                            <div class="d-flex align-items-center">
+                                <div class="m-1">
+                                    <button type="button" class="btn btn-outline-white btn-sm btn-rounded">
+                                        Edit
+                                    </button>
+                                </div>
+                                <div class="m-1">
+                                    <button type="button" class="btn btn-outline-danger btn-sm btn-rounded">
+                                        Delete
+                                    </button>
+                                </div>
+                            </div>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </section>
+    <!-- Section: Completed Table -->
+</div>
+
+{% endblock content %}

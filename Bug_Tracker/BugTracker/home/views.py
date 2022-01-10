@@ -1,9 +1,8 @@
 from django.shortcuts import render, redirect, HttpResponse
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
-from django.contrib.auth.models import User
 from django.contrib.auth import authenticate, login, logout
-from home.models import BugTickets, SortedBugTickets
+from home.models import BugTickets, SortedBugTickets, User
 from home.forms import BugTicketsForm
 
 # Create your views here.
@@ -14,21 +13,21 @@ def loginPage(request):
         return redirect('home')
     
     if request.method == "POST":
-        username = request.POST.get('username')
+        email = request.POST.get('email')
         password = request.POST.get('password')
 
         try:
-            user = User.objects.get(username=username)
+            user = User.objects.get(email=email)
         except:
             messages.error(request, 'User does not exist')
             
-        user = authenticate(request, username=username, password=password)
+        user = authenticate(request, email=email, password=password)
 
         if user != None:
             login(request, user)
             return redirect('home')
         else:
-            messages.error(request, 'Username or Password does not exist!')
+            messages.error(request, 'Email or Password does not exist!')
     context = {}
     return render(request, 'login.html', context)
 
@@ -36,7 +35,7 @@ def logoutUser(request):
     logout(request)
     return redirect('home')
 
-@login_required(login_url='login')
+# @login_required(login_url='login')
 def index(request):
     form = BugTicketsForm()
     if request.method == "POST":
@@ -110,3 +109,6 @@ def delete(request, id):
 def updateSortedBugTickets():
     SortedBugTickets.chandiyo.all().delete()
     SortedBugTickets.chandiyo.testSaver()
+
+def dashboard(request):
+    return render(request, "dashboard.html")
