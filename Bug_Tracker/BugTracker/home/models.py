@@ -19,6 +19,9 @@ class BugTickets(models.Model):
     title = models.CharField(max_length=122,)
     description = models.TextField(max_length=500, null=True, blank=True)
     priority = models.IntegerField()
+    assigned_to = models.ManyToManyField(User, related_name='assigned_to', blank=True)
+    reported_by = models.ForeignKey(User, on_delete=models.SET_NULL, null=True)
+    status = models.CharField(max_length=122, default="unopened")
     update_date = models.DateTimeField(auto_now=True)
     create_date = models.DateTimeField(auto_now_add=True)
 

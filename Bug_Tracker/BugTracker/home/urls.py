@@ -27,5 +27,6 @@ urlpatterns = [
     path("update-ticket/<int:id>/", views.update, name="update-ticket"),
     path("delete-ticket/<int:id>/", views.delete, name="delete-ticket"),
     path("dashboard/", views.dashboard, name="dashboard"),
+    path("add-ticket/", views.add_ticket, name="add-ticket"),
     # path("sort-tickets/", views.sorter, name="sort-tickets"),
 ]

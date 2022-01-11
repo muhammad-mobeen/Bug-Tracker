@@ -76,6 +76,25 @@ def show(request):
     sorted_tickets = SortedBugTickets.chandiyo.all()
     return render(request, "show.html", {'tickets': tickets, 'sorted_tickets': sorted_tickets})
 
+def dashboard(request):
+    updateSortedBugTickets()
+    tickets_all = BugTickets.objects.all()
+    inprogress_tickets = BugTickets.objects.filter(status='inprogress')
+    unopened_tickets = BugTickets.objects.filter(status='unopened')
+    closed_tickets = BugTickets.objects.exclude(status='inprogress').exclude(status='unopened')
+    sorted_tickets = SortedBugTickets.chandiyo.all()
+    context = {
+        'tickets_all': tickets_all,
+        'inprogress_tickets': inprogress_tickets,
+        'unopened_tickets': unopened_tickets,
+        'closed_tickets': closed_tickets,
+        'sorted_tickets': sorted_tickets,
+    }
+    return render(request, "dashboard.html", context)
+
+def add_ticket(request):
+    return render(request, "add_ticket.html")
+
 def edit(request, id):
     ticket = BugTickets.objects.get(id=id)
     return render(request, "index.html", {'ticket': ticket})
@@ -109,6 +128,3 @@ def delete(request, id):
 def updateSortedBugTickets():
     SortedBugTickets.chandiyo.all().delete()
     SortedBugTickets.chandiyo.testSaver()
-
-def dashboard(request):
-    return render(request, "dashboard.html")

@@ -1,0 +1,73 @@
+{% extends 'main.html' %}
+
+{% block title %}Add Ticket{% endblock %}
+
+{% block content %}
+
+<div class="container py-4">
+    
+    <div class="d-flex justify-content-center mx-4 mb-3">
+        <h1>Generate New Ticket</h1>
+    </div>
+    <section class="d-flex justify-content-center mb-5">
+        <div class="bg-glass shadow-4-strong rounded-6" style="min-width: 600px;">
+            <form class="align-middle mx-5 p-5" style="min-width: 500px;">
+                <!-- Text input -->
+                <div class="form-outline mb-4">
+                    <input type="text" id="form6Example3" class="form-control" />
+                    <label class="form-label" for="form6Example3">Title</label>
+                </div>
+                
+                <!-- Message input -->
+                <div class="form-outline mb-4">
+                  <textarea class="form-control" id="form6Example7" rows="4"></textarea>
+                  <label class="form-label" for="form6Example7">Additional information</label>
+                </div>
+
+                <div class="input-group">
+                    <label class="label">Priority</label>
+                    <div class="rs-select2 js-select-simple select--no-search">
+                        <select name="priority" required>
+                            <option disabled="disabled" selected="selected">Choose option</option>
+                            <option {% if ticket.priority == 4 %}selected{% endif %}>Low</option>
+                            <option {% if ticket.priority == 1 %}selected{% endif %}>Urgent</option>
+                            <option {% if ticket.priority == 2 %}selected{% endif %}>High</option>
+                            <option {% if ticket.priority == 3 %}selected{% endif %}>Medium</option>
+                        </select>
+                        <div class="select-dropdown"></div>
+                    </div>
+                </div>
+
+                <!-- Email input -->
+                <div class="form-outline mb-4">
+                  <input type="email" id="form6Example5" class="form-control" />
+                  <label class="form-label" for="form6Example5">Email</label>
+                </div>
+              
+                <!-- Number input -->
+                <div class="form-outline mb-4">
+                  <input type="number" id="form6Example6" class="form-control" />
+                  <label class="form-label" for="form6Example6">Phone</label>
+                </div>
+              
+              
+                <!-- Checkbox -->
+                <div class="form-check d-flex justify-content-center mb-4">
+                  <input
+                    class="form-check-input me-2"
+                    type="checkbox"
+                    value=""
+                    id="form6Example8"
+                    checked
+                  />
+                  <label class="form-check-label" for="form6Example8"> Create an account? </label>
+                </div>
+              
+                <!-- Submit button -->
+                <button type="submit" class="btn btn-primary btn-block mb-4">Place order</button>
+              </form>
+        </div>
+    </section>
+</div>
+
+{% endblock content %}
