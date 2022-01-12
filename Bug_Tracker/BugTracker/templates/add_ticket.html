@@ -5,26 +5,80 @@
 {% block content %}
 
 <div class="container py-4">
-    
-    <div class="d-flex justify-content-center mx-4 mb-3">
-        <h1>Generate New Ticket</h1>
-    </div>
-    <section class="d-flex justify-content-center mb-5">
-        <div class="bg-glass shadow-4-strong rounded-6" style="min-width: 600px;">
-            <form class="align-middle mx-5 p-5" style="min-width: 500px;">
-                <!-- Text input -->
-                <div class="form-outline mb-4">
-                    <input type="text" id="form6Example3" class="form-control" />
-                    <label class="form-label" for="form6Example3">Title</label>
-                </div>
-                
-                <!-- Message input -->
-                <div class="form-outline mb-4">
-                  <textarea class="form-control" id="form6Example7" rows="4"></textarea>
-                  <label class="form-label" for="form6Example7">Additional information</label>
-                </div>
 
-                <div class="input-group">
+  <div class="d-flex justify-content-center mx-4 mb-3">
+    <h1>Generate New Ticket</h1>
+  </div>
+  <section class="d-flex justify-content-center mb-5">
+    <div class="bg-glass shadow-4-strong rounded-6" style="min-width: 600px;">
+      <form method="POST" action="{% url 'add-ticket' %}" class="align-middle mx-5 p-5" style="min-width: 500px;">
+        {% csrf_token %}
+        <!-- Text input -->
+        <div class="form-outline mb-4">
+          <input type="text" name="title" id="form6Example3" class="form-control text-white" required/>
+          <label class="form-label text-white" for="form6Example3">Title</label>
+        </div>
+
+        <!-- Message input -->
+        <div class="form-outline mb-4">
+          <textarea class="form-control text-white" name="description" id="form6Example7" rows="4" data-mdb-showcounter="true"
+            maxlength="500"></textarea>
+          <label class="form-label text-white" for="form6Example7">Description</label>
+          <div class="form-helper"></div>
+        </div>
+
+        <!-- Priority Input -->
+        <div class="form-outline mb-4 selct">
+          <select name="priority" id="priority1" class="form-control">
+            <option value="1">
+              {% for i in '0123456'|make_list %}
+              &nbsp;
+              {% endfor %}
+              : Urgent
+            </option>
+            <option value="2">
+              {% for i in '0123456'|make_list %}
+              &nbsp;
+              {% endfor %}
+              : High
+            </option>
+            <option value="3">
+              {% for i in '0123456'|make_list %}
+              &nbsp;
+              {% endfor %}
+              : Medium
+            </option>
+            <option value="4" selected>
+              {% for i in '0123456'|make_list %}
+              &nbsp;
+              {% endfor %}
+              : Low
+            </option>
+          </select>
+          <label class="form-label text-white" for="priority1">Priority</label>
+        </div>
+
+        <!-- Assignee Input -->
+        <div class="form-outline mb-4">
+          <select name="assigned_to" id="assignee" class="js-states form-control" multiple="multiple" required>
+            {% for user in users %}
+            <option value="{{ user.username }}">
+              @{{ user.username }}
+            </option>
+            {% endfor %}
+          </select>
+        </div>
+
+        <!-- Assignee Input -->
+        <div class="form-outline mb-4">
+          <select name="reported_by" id="assignee" class="js-states form-control text-primary" disabled>
+            <option value="{{ loged_user.username }}">
+              Reported by: @{{ loged_user.username }}
+            </option>
+          </select>
+        </div>
+
+        <!-- <div class="input-group">
                     <label class="label">Priority</label>
                     <div class="rs-select2 js-select-simple select--no-search">
                         <select name="priority" required>
@@ -36,38 +90,15 @@
                         </select>
                         <div class="select-dropdown"></div>
                     </div>
-                </div>
+                </div> -->
 
-                <!-- Email input -->
-                <div class="form-outline mb-4">
-                  <input type="email" id="form6Example5" class="form-control" />
-                  <label class="form-label" for="form6Example5">Email</label>
-                </div>
-              
-                <!-- Number input -->
-                <div class="form-outline mb-4">
-                  <input type="number" id="form6Example6" class="form-control" />
-                  <label class="form-label" for="form6Example6">Phone</label>
-                </div>
-              
-              
-                <!-- Checkbox -->
-                <div class="form-check d-flex justify-content-center mb-4">
-                  <input
-                    class="form-check-input me-2"
-                    type="checkbox"
-                    value=""
-                    id="form6Example8"
-                    checked
-                  />
-                  <label class="form-check-label" for="form6Example8"> Create an account? </label>
-                </div>
-              
-                <!-- Submit button -->
-                <button type="submit" class="btn btn-primary btn-block mb-4">Place order</button>
-              </form>
-        </div>
-    </section>
+        <!-- Submit button -->
+        <button type="submit" class="btn btn-primary btn-block mb-4">
+          <i class="fas fa-plus-circle m-1"></i>Add New Bug Ticket
+        </button>
+      </form>
+    </div>
+  </section>
 </div>
 
 {% endblock content %}

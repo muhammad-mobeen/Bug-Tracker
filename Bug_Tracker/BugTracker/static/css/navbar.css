@@ -187,6 +187,7 @@ ul.nav-list {
 }
 .sidebar.open li.profile{
   width: 250px;
+  min-height: 700px;
 }
 .sidebar li .profile-details{
   display: flex;

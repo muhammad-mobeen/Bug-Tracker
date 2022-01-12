@@ -25,7 +25,7 @@ def loginPage(request):
 
         if user != None:
             login(request, user)
-            return redirect('home')
+            return redirect('dashboard')
         else:
             messages.error(request, 'Email or Password does not exist!')
     context = {}
@@ -35,7 +35,7 @@ def logoutUser(request):
     logout(request)
     return redirect('home')
 
-# @login_required(login_url='login')
+@login_required(login_url='login')
 def index(request):
     form = BugTicketsForm()
     if request.method == "POST":
@@ -78,6 +78,7 @@ def show(request):
 
 def dashboard(request):
     updateSortedBugTickets()
+    loged_user = request.user
     tickets_all = BugTickets.objects.all()
     inprogress_tickets = BugTickets.objects.filter(status='inprogress')
     unopened_tickets = BugTickets.objects.filter(status='unopened')
@@ -89,11 +90,25 @@ def dashboard(request):
         'unopened_tickets': unopened_tickets,
         'closed_tickets': closed_tickets,
         'sorted_tickets': sorted_tickets,
+        'loged_user': loged_user,
     }
     return render(request, "dashboard.html", context)
 
 def add_ticket(request):
-    return render(request, "add_ticket.html")
+    users = User.objects.all()
+    loged_user = request.user
+    if request.method == "POST":
+        request.POST = request.POST.copy()
+        assignees = request.POST.get('assigned_to')
+        print(request.POST)
+        for user in request.POST.getlist('assigned_to'):
+            print(user)
+        
+    context = {
+        'users': users,
+        'loged_user': loged_user,
+    }
+    return render(request, "add_ticket.html", context)
 
 def edit(request, id):
     ticket = BugTickets.objects.get(id=id)

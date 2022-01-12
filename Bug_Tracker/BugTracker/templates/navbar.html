@@ -1,21 +1,28 @@
 <div class="sidebar">
     <div class="logo-details">
         <i class='bx bxl-c-plus-plus icon'></i>
-        <div class="logo_name">CodingLab</div>
+        <div class="logo_name">Bug Tracker</div>
         <i class='bx bx-menu' id="btn"></i>
     </div>
     <ul class="nav-list">
-        <li>
+        <!-- <li>
             <i class='bx bx-search'></i>
             <input type="text" placeholder="Search...">
             <span class="tooltip">Search</span>
-        </li>
+        </li> -->
         <li>
-            <a href="#">
+            <a href="{% url 'dashboard' %}">
                 <i class='bx bx-grid-alt'></i>
                 <span class="links_name">Dashboard</span>
             </a>
             <span class="tooltip">Dashboard</span>
+        </li>
+        <li>
+            <a href="{% url 'add-ticket' %}">
+                <i class='bx bx-add-to-queue'></i>
+                <span class="links_name">Add Bug Ticket</span>
+            </a>
+            <span class="tooltip">Report Bug</span>
         </li>
         <li>
             <a href="#">
@@ -23,13 +30,6 @@
                 <span class="links_name">User</span>
             </a>
             <span class="tooltip">User</span>
-        </li>
-        <li>
-            <a href="#">
-                <i class='bx bx-chat'></i>
-                <span class="links_name">Messages</span>
-            </a>
-            <span class="tooltip">Messages</span>
         </li>
         <li>
             <a href="#">
@@ -68,13 +68,16 @@
         </li>
         <li class="profile">
             <div class="profile-details">
+                <img src="{{ loged_user.avatar.url }}" alt="" style="width: 35px; height: 35px" class="rounded-circle" />
                 <!--<img src="profile.jpg" alt="profileImg">-->
                 <div class="name_job">
-                    <div class="name">Prem Shahi</div>
-                    <div class="job">Web designer</div>
+                    <div class="name">{{ loged_user.name }}</div>
+                    <div class="job text-primary">@{{ loged_user.username }}</div>
                 </div>
             </div>
-            <i class='bx bx-log-out' id="log_out"></i>
+            <a href="{% url 'logout' %}">
+                <i class='bx bx-log-out' id="log_out"></i>
+            </a>
         </li>
     </ul>
 </div>
