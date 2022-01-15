@@ -9,6 +9,10 @@ class User(AbstractUser):
     name = models.CharField(max_length=200, null=True)
     email = models.EmailField(unique=True, null=True)
     bio = models.TextField(null=True)
+    reported_tickets = models.IntegerField(null=True, default=0)
+    assigned_tickets = models.IntegerField(null=True, default=0)
+    completed_tickets = models.IntegerField(null=True, default=0)
+    is_online = models.BooleanField(default=False)
 
     avatar = models.ImageField(null=True, default="markhor.jpg")
 

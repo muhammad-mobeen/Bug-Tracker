@@ -1,6 +1,6 @@
 <div class="sidebar">
     <div class="logo-details">
-        <i class='bx bxl-c-plus-plus icon'></i>
+        <i class='bx bxs-bug icon' ></i>
         <div class="logo_name">Bug Tracker</div>
         <i class='bx bx-menu' id="btn"></i>
     </div>
@@ -25,11 +25,11 @@
             <span class="tooltip">Report Bug</span>
         </li>
         <li>
-            <a href="#">
-                <i class='bx bx-user'></i>
-                <span class="links_name">User</span>
+            <a href="{% url 'teams' %}">
+                <i class="fas fa-users"></i>
+                <span class="links_name">Teams</span>
             </a>
-            <span class="tooltip">User</span>
+            <span class="tooltip">Teams</span>
         </li>
         <li>
             <a href="#">
@@ -66,17 +66,27 @@
             </a>
             <span class="tooltip">Setting</span>
         </li>
+        <li>
+            <a href="{% url 'logout' %}">
+                <i class='bx bx-power-off'></i>
+                <span class="links_name">Logout</span>
+            </a>
+            <span class="tooltip">Logout</span>
+        </li>
         <li class="profile">
             <div class="profile-details">
-                <img src="{{ loged_user.avatar.url }}" alt="" style="width: 35px; height: 35px" class="rounded-circle" />
+                <img src="{{ loged_user.avatar.url }}" alt="profile image" style="width: 35px; height: 35px" class="rounded-circle me-2"/>
                 <!--<img src="profile.jpg" alt="profileImg">-->
                 <div class="name_job">
                     <div class="name">{{ loged_user.name }}</div>
                     <div class="job text-primary">@{{ loged_user.username }}</div>
                 </div>
             </div>
-            <a href="{% url 'logout' %}">
-                <i class='bx bx-log-out' id="log_out"></i>
+            <a href="#btn" id="profile-btn">
+                <i id="log_out">
+                    <img src="{{ loged_user.avatar.url }}" alt="profile image" style="width: 50px; height: 50px" class="rounded-circle" />
+                </i>
+                <!-- class='bx bx-log-out'  -->
             </a>
         </li>
     </ul>

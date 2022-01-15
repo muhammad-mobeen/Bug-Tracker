@@ -1,0 +1,88 @@
+{% extends 'main.html' %}
+
+{% block title %}Team Overview{% endblock %}
+
+{% block content %}
+
+
+<div class="ms-5 ps-5 mb-4 mt-4">
+    <h1>Team Overview</h1>
+</div>
+<div class="container d-flex justify-content-center">
+    <!-- Section: Summary -->
+    <section class="mb-5">
+        <div class="row gx-xl-5">
+            {% for user in users %}
+            <div class="col-xl-4 col-md-6 my-4 mb-xl-0">
+                <!-- Card -->
+                <div class="card p-3 py-4 bg-glass ripple">
+                    <div class="text-center"><img src="{{ user.avatar.url }}" width="150" class="rounded-circle">
+                        <h5 class="mt-2">{{ user.name }}</h5>
+                        <div style="color: rgb(255, 102, 255);">@{{ user.username }}</div>
+                        <span class="mt-1 clearfix">{{ user.bio }}</span>
+                        <div class="row mt-3">
+                            <div class="col-md-4">
+                                Reported
+                            </div>
+                            <div class="col-md-4">
+                                Currently assigned
+                            </div>
+                            <div class="col-md-4">
+                                Completed
+                            </div>
+                        </div>
+                        <div class="row mb-3">
+                            <div class="col-md-4">
+                                <span class="num">{{ user.reported_tickets }}</span>
+                            </div>
+                            <div class="col-md-4">
+                                <span class="num">{{ user.assigned_tickets }}</span>
+                            </div>
+                            <div class="col-md-4">
+                                <span class="num">{{ user.completed_tickets }}</span>
+                            </div>
+                        </div>
+                        <hr class="line">
+                        {% if user.is_online %}
+                        <div class="text-start">
+                            <span class="badge rounded-pill bg-dark">
+                                <i class="fas fa-circle m-1" style="font-size: 0.5rem; color: rgb(43, 255, 0);"></i>Online
+                            </span>
+                        </div>
+                        {% else %}
+                        <div class="text-start">
+                            <span class="badge rounded-pill bg-dark">
+                                <i class="fas fa-circle m-1" style="font-size: 0.5rem; color: rgb(255, 0, 55);"></i>Away
+                            </span>
+                        </div>
+                        {% endif %}
+                        <div class="text-start mt-2">
+                            <span class="info">
+                                Email:
+                            </span>
+                            <span style="color: rgb(0, 255, 136);">{{ user.email }}</span>
+                        </div>
+                        <div class="text-start mt-2">
+                            <span class="info">
+                                Last seen:
+                            </span>
+                            <span style="color: rgb(0, 255, 136);">{{ user.last_login|timesince }} ago</span>
+                        </div>
+                        <i class="fab fa-github mx-2 mt-2" style="font-size: x-large;"></i>
+                        <i class="fab fa-linkedin-in mx-2 mt-2" style="font-size: x-large;"></i>
+                        <i class="fab fa-twitter mx-2 mt-2" style="font-size: x-large;"></i>
+                        <i class='bx bxl-meta mx-2 mt-2' style="font-size: x-large;"></i>
+                        <!-- <small class="mt-4">I am an android developer working at google Inc at california,USA</small> -->
+                        <!-- <div class="social-buttons mt-3"> <button class="neo-button"><i class="fa fa-facebook fa-1x"></i> </button> <button class="neo-button"><i class="fa fa-linkedin fa-1x"></i></button> <button class="neo-button"><i class="fa fa-google fa-1x"></i> </button> <button class="neo-button"><i class="fa fa-youtube fa-1x"></i> </button> <button class="neo-button"><i class="fa fa-twitter fa-1x"></i> </button> </div> -->
+                        <!-- <div class="profile mt-5"> <button class="profile_button px-5">View profile</button> </div> -->
+                    </div>
+                </div>
+                <!-- Card -->
+            </div>
+            {% endfor %}
+        </div>
+    </section>
+    <!-- Section: Summary -->
+</div>
+
+{% endblock content%}

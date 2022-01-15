@@ -139,7 +139,7 @@ ul.nav-list {
 }
 .sidebar li a{
   display: flex;
-  height: 100%;
+  /* height: 100%; */
   width: 100%;
   border-radius: 12px;
   align-items: center;
@@ -176,7 +176,7 @@ ul.nav-list {
 }
 .sidebar li.profile{
   position: fixed;
-  height: 60px;
+  height: 70px;
   width: 78px;
   left: 0;
   bottom: -8px;
@@ -187,7 +187,7 @@ ul.nav-list {
 }
 .sidebar.open li.profile{
   width: 250px;
-  min-height: 700px;
+  min-height: 70px;
 }
 .sidebar li .profile-details{
   display: flex;
@@ -199,7 +199,7 @@ ul.nav-list {
   width: 45px;
   object-fit: cover;
   border-radius: 6px;
-  margin-right: 10px;
+  /* margin-right: 10px; */
 }
 .sidebar li.profile .name,
 .sidebar li.profile .job{
@@ -224,8 +224,9 @@ ul.nav-list {
   transition: all 0.5s ease;
 }
 .sidebar.open .profile #log_out{
-  width: 50px;
-  background: none;
+  display: none;
+  /* width: 50px;
+  background: none; */
 }
 .home-section{
   position: relative;
@@ -269,6 +270,28 @@ ul.nav-list {
     font-weight: 500;
     margin: 18px
 }
+
+.bxl-meta {
+  color: #0084ff;
+  font-size: x-large;
+}
+
+.fa-linkedin-in {
+  color: #0077b5
+}
+
+.fa-google {
+  color: #dc4e41
+}
+
+.fa-youtube {
+  color: #cd201f
+}
+
+.fa-twitter {
+  color: #55acee
+}
+
 @media (max-width: 420px) {
   .sidebar li .tooltip{
     display: none;

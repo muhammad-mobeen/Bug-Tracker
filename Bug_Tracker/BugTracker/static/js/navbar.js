@@ -1,6 +1,12 @@
 let sidebar = document.querySelector(".sidebar");
 let closeBtn = document.querySelector("#btn");
+let profileBtn = document.querySelector("#profile-btn");
 let searchBtn = document.querySelector(".bx-search");
+
+profileBtn.addEventListener("click", () => {
+    sidebar.classList.toggle("open");
+    menuBtnChange(); //calling the function(optional)
+});
 
 closeBtn.addEventListener("click", () => {
     sidebar.classList.toggle("open");

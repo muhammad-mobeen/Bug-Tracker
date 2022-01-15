@@ -4,7 +4,10 @@
 
 {% block content %}
 
+
 <div class="container py-4">
+    {% include 'messages.html' %}
+
     <div class="mx-4 mb-3">
         <h1>Dashboard</h1>
     </div>
@@ -15,14 +18,14 @@
                 <!-- Card -->
                 <a class="d-flex align-items-center p-4 bg-glass shadow-4-strong rounded-6 text-reset ripple" href="#" data-ripple-color="hsl(0, 0%, 75%)">
                     <div class="p-3 bg-theme rounded-4">
-                        <i class="fas fa-users fa-lg text-white fa-fw"></i>
+                        <i class='bx bxs-bug' style="font-size: xx-large;"></i>
                     </div>
 
                     <div class="ms-4">
                         <p class="text-muted mb-2">Total Bugs</p>
                         <p class="mb-0">
                             <span class="h5 me-2">{{ tickets_all.count }}</span>
-                            <small class="text-success text-sm"><i class="fas fa-arrow-up fa-sm me-1"></i>13,48%</small>
+                            <!-- <small class="text-success text-sm"><i class="fas fa-arrow-up fa-sm me-1"></i>13,48%</small> -->
                         </p>
                     </div>
                 </a>
@@ -33,14 +36,15 @@
                 <!-- Card -->
                 <a class="d-flex align-items-center p-4 bg-glass shadow-4-strong rounded-6 text-reset ripple" href="#" data-ripple-color="hsl(0, 0%, 75%)">
                     <div class="p-3 bg-theme rounded-4">
-                        <i class="fas fa-file-alt fa-lg text-white fa-fw"></i>
+                        <i class="fas fa-envelope fa-lg text-white fa-fw"></i>
+                        <!-- <i class="fas fa-file-alt fa-lg text-white fa-fw"></i> -->
                     </div>
 
                     <div class="ms-4">
                         <p class="text-muted mb-2">Un-Opened</p>
                         <p class="mb-0">
-                            <span class="h5 me-2">{{ unopened_tickets.count }}</span>
-                            <small class="text-success text-sm"><i class="fas fa-arrow-up fa-sm me-1"></i>23,58%</small>
+                            <span class="h5 me-2 text-primary">{{ unopened_tickets.count }}</span>
+                            <!-- <small class="text-success text-sm"><i class="fas fa-arrow-up fa-sm me-1"></i>23,58%</small> -->
                         </p>
                     </div>
                 </a>
@@ -57,9 +61,8 @@
                     <div class="ms-4">
                         <p class="text-muted mb-2">In Progress</p>
                         <p class="mb-0">
-                            <span class="h5 me-2">{{ inprogress_tickets.count }}</span>
-                            <small class="text-danger text-sm"><i
-                                    class="fas fa-arrow-down fa-sm me-1"></i>23,58%</small>
+                            <span class="h5 me-2 text-success">{{ inprogress_tickets.count }}</span>
+                            <!-- <small class="text-danger text-sm"><i class="fas fa-arrow-down fa-sm me-1"></i>23,58%</small> -->
                         </p>
                     </div>
                 </a>
@@ -70,15 +73,15 @@
                 <!-- Card -->
                 <a class="d-flex align-items-center p-4 bg-glass shadow-4-strong rounded-6 text-reset ripple" href="#" data-ripple-color="hsl(0, 0%, 75%)">
                     <div class="p-3 bg-theme rounded-4">
-                        <i class="fas fa-sign-out-alt fa-lg text-white fa-fw"></i>
+                        <i class="fas fa-check-double fa-lg text-white fa-fw"></i>
+                        <!-- <i class="fas fa-sign-out-alt fa-lg text-white fa-fw"></i> -->
                     </div>
 
                     <div class="ms-4">
                         <p class="text-muted mb-2">Completed/Closed</p>
                         <p class="mb-0">
-                            <span class="h5 me-2">{{ closed_tickets.count }}</span>
-                            <small class="text-success text-sm"><i
-                                    class="fas fa-arrow-down fa-sm me-1"></i>23,58%</small>
+                            <span class="h5 me-2 text-secondary">{{ closed_tickets.count }}</span>
+                            <!-- <small class="text-success text-sm"><i class="fas fa-arrow-down fa-sm me-1"></i>23,58%</small> -->
                         </p>
                     </div>
                 </a>
@@ -100,7 +103,7 @@
     <section class="mb-5">
         <div class="table-responsive bg-glass shadow-4-strong rounded-6">
             <table class="
-            table table-borderless table-hover
+            table table-borderless table-hover table-striped
             align-middle
             mb-0
             text-white
@@ -108,31 +111,31 @@
                 <thead class="">
                     <tr>
                         <th>#</th>
-                        <th>Bug ID</th>
+                        <th style="text-align: center;">Bug ID</th>
                         <th>Title</th>
                         <th>Description</th>
-                        <th>Priority</th>
+                        <th style="text-align: center;">Priority</th>
                         <th>Assigned to</th>
                         <th>Reported by</th>
-                        <th>Updated On</th>
-                        <th>Created On</th>
-                        <th>Actions</th>
+                        <th style="text-align: center;">Updated On</th>
+                        <th style="text-align: center;">Created On</th>
+                        <th style="text-align: center;">Actions</th>
                     </tr>
                 </thead>
                 <tbody class="">
                     {% for prticket in sorted_tickets %}
                     {% for ticket in inprogress_tickets %}
-                    {% if prticket.id == ticket.id %}
+                    {% if prticket.bug_ref == ticket.id %}
                     <tr class="text-white">
-                        <td>{{ forloop.counter }}</td>
-                        <td>{{ ticket.id }}</td>
+                        <td>{% cycle '1' '2' '3' '4' '5' '6' '7' '8' '9' '10' '11' '12' '13' '14' '15' '16' '17' '18' '19' '20' '21' '22' '23' '24' '25' '26' '27' '28' '29' '30' %}</td>
+                        <td style="text-align: center;">{{ ticket.id }}</td>
                         <td>
                             <p class="fw-bold" style="min-width: 120px;">{{ ticket.title }}</p>
                         </td>
                         <td>
                             <p style="min-width: 200px;">{{ ticket.description }}</p>
                         </td>
-                        <td>
+                        <td style="text-align: center;">
                             {% if ticket.priority == 1 %}
                             <span class="badge badge-danger rounded-pill">
                                 Urgent
@@ -142,7 +145,7 @@
                                 High
                             </span>
                             {% elif ticket.priority == 3 %}
-                            <span class="badge badge-success rounded-pill">
+                            <span class="badge badge-primary rounded-pill">
                                 Medium
                             </span>
                             {% else %}
@@ -152,11 +155,11 @@
                             {% endif %}
                         </td>
                         <td>
-                            {% for user in ticket.assigned_to %}
+                            {% for user in ticket.assigned_to.all %}
                             <div class="d-flex align-items-center">
                                 <!-- https://mdbootstrap.com/img/new/avatars/8.jpg -->
                                 <img src="{{ user.avatar.url }}" alt="avatar"
-                                    style="width: 25px; height: 25px" class="rounded-circle"/>
+                                    style="width: 35px; height: 35px" class="rounded-circle"/>
                                 <div class="ms-3">
                                     <p class="fw-bold mb-1">@{{ user.username }}</p>
                                     <p class="text-muted mb-0">{{ user.email }}</p>
@@ -167,36 +170,36 @@
                         <td>
                             <div class="d-flex align-items-center">
                                 <img src="{{ ticket.reported_by.avatar.url }}" alt=""
-                                    style="width: 25px; height: 25px" class="rounded-circle" />
+                                    style="width: 35px; height: 35px" class="rounded-circle" />
                                 <div class="ms-3">
                                     <p class="fw-bold mb-1">@{{ ticket.reported_by.username }}</p>
                                     <p class="text-muted mb-0">{{ ticket.reported_by.email }}</p>
                                 </div>
                             </div>
                         </td>
-                        <td>{{ ticket.update_date }}</td>
-                        <td>{{ ticket.create_date }}</td>
+                        <td style="text-align: center;">{{ ticket.update_date }}</td>
+                        <td style="text-align: center;">{{ ticket.create_date }}</td>
                         <td>
                             <div class="d-flex flex-column align-items-center" style="min-width: 90px;">
                                 <div class="m-1">
-                                    <button type="button" class="btn btn-outline-success btn-sm btn-rounded">
+                                    <a href=" {% url 'update-status' ticket.id 1 %} " class="btn btn-outline-success btn-sm btn-rounded">
                                         <i class="fas fa-check m-1"></i>Done
-                                    </button>
+                                    </a>
                                 </div>
                                 <div class="m-1">
-                                    <button type="button" class="btn btn-outline-success btn-sm btn-rounded">
-                                        <i class="fas fa-slash m-1"></i></i>Close
-                                    </button>
+                                    <a href=" {% url 'update-status' ticket.id 0 %} " class="btn btn-outline-secondary btn-sm btn-rounded">
+                                        <i class="fas fa-slash m-1"></i>Close
+                                    </a>
                                 </div>
                                 <div class="m-1">
-                                    <button type="button" class="btn btn-outline-white btn-sm btn-rounded">
+                                    <a href="{% url 'edit-ticket' ticket.id %}" class="btn btn-outline-white btn-sm btn-rounded">
                                         Edit
-                                    </button>
+                                    </a>
                                 </div>
                                 <div class="m-1">
-                                    <button type="button" class="btn btn-outline-danger btn-sm btn-rounded">
+                                    <a href="{% url 'delete-ticket' ticket.id %}" class="btn btn-outline-danger btn-sm btn-rounded">
                                         Delete
-                                    </button>
+                                    </a>
                                 </div>
                             </div>
                         </td>
@@ -223,7 +226,7 @@
     <section class="mb-5">
         <div class="table-responsive bg-glass shadow-4-strong rounded-6">
             <table class="
-            table table-borderless table-hover
+            table table-borderless table-hover table-striped
             align-middle
             mb-0
             text-white
@@ -231,31 +234,31 @@
                 <thead class="">
                     <tr>
                         <th>#</th>
-                        <th>Bug ID</th>
+                        <th style="text-align: center;">Bug ID</th>
                         <th>Title</th>
                         <th>Description</th>
-                        <th>Priority</th>
+                        <th style="text-align: center;">Priority</th>
                         <th>Assigned to</th>
                         <th>Reported by</th>
-                        <th>Updated On</th>
-                        <th>Created On</th>
-                        <th>Actions</th>
+                        <th style="text-align: center;">Updated On</th>
+                        <th style="text-align: center;">Created On</th>
+                        <th style="text-align: center;">Actions</th>
                     </tr>
                 </thead>
                 <tbody class="">
                     {% for prticket in sorted_tickets %}
                     {% for ticket in unopened_tickets %}
-                    {% if prticket.id == ticket.id %}
+                    {% if prticket.bug_ref == ticket.id %}
                     <tr class="text-white">
-                        <td>{{ forloop.counter }}</td>
-                        <td>{{ ticket.id }}</td>
+                        <td>{% cycle '1' '2' '3' '4' '5' '6' '7' '8' '9' '10' '11' '12' '13' '14' '15' '16' '17' '18' '19' '20' '21' '22' '23' '24' '25' '26' '27' '28' '29' '30' %}</td>
+                        <td style="text-align: center;">{{ ticket.id }}</td>
                         <td>
                             <p class="fw-bold" style="min-width: 120px;">{{ ticket.title }}</p>
                         </td>
                         <td>
                             <p style="min-width: 200px;">{{ ticket.description }}</p>
                         </td>
-                        <td>
+                        <td style="text-align: center;">
                             {% if ticket.priority == 1 %}
                             <span class="badge badge-danger rounded-pill">
                                 Urgent
@@ -265,7 +268,7 @@
                                 High
                             </span>
                             {% elif ticket.priority == 3 %}
-                            <span class="badge badge-success rounded-pill">
+                            <span class="badge badge-primary rounded-pill">
                                 Medium
                             </span>
                             {% else %}
@@ -275,11 +278,11 @@
                             {% endif %}
                         </td>
                         <td>
-                            {% for user in ticket.assigned_to %}
+                            {% for user in ticket.assigned_to.all %}
                             <div class="d-flex align-items-center">
                                 <!-- https://mdbootstrap.com/img/new/avatars/8.jpg -->
                                 <img src="{{ user.avatar.url }}" alt="avatar"
-                                    style="width: 25px; height: 25px" class="rounded-circle"/>
+                                    style="width: 35px; height: 35px" class="rounded-circle"/>
                                 <div class="ms-3">
                                     <p class="fw-bold mb-1">@{{ user.username }}</p>
                                     <p class="text-muted mb-0">{{ user.email }}</p>
@@ -290,31 +293,31 @@
                         <td>
                             <div class="d-flex align-items-center">
                                 <img src="{{ ticket.reported_by.avatar.url }}" alt=""
-                                    style="width: 25px; height: 25px" class="rounded-circle" />
+                                    style="width: 35px; height: 35px" class="rounded-circle" />
                                 <div class="ms-3">
                                     <p class="fw-bold mb-1">@{{ ticket.reported_by.username }}</p>
                                     <p class="text-muted mb-0">{{ ticket.reported_by.email }}</p>
                                 </div>
                             </div>
                         </td>
-                        <td>{{ ticket.update_date }}</td>
-                        <td>{{ ticket.create_date }}</td>
+                        <td style="text-align: center;">{{ ticket.update_date }}</td>
+                        <td style="text-align: center;">{{ ticket.create_date }}</td>
                         <td>
                             <div class="d-flex flex-column align-items-center" style="min-width: 90px;">
                                 <div class="m-1">
-                                    <button type="button" class="btn btn-outline-success btn-sm btn-rounded">
+                                    <a href="{% url 'update-status' ticket.id 0 %}" class="btn btn-outline-success btn-sm btn-rounded">
                                         <i class="far fa-envelope-open m-1"></i>Open
-                                    </button>
+                                    </a>
                                 </div>
                                 <div class="m-1">
-                                    <button type="button" class="btn btn-outline-white btn-sm btn-rounded">
+                                    <a href="{% url 'edit-ticket' ticket.id %}" class="btn btn-outline-white btn-sm btn-rounded">
                                         Edit
-                                    </button>
+                                    </a>
                                 </div>
                                 <div class="m-1">
-                                    <button type="button" class="btn btn-outline-danger btn-sm btn-rounded">
+                                    <a href="{% url 'delete-ticket' ticket.id %}" class="btn btn-outline-danger btn-sm btn-rounded">
                                         Delete
-                                    </button>
+                                    </a>
                                 </div>
                             </div>
                         </td>
@@ -341,7 +344,7 @@
     <section class="mb-5">
         <div class="table-responsive bg-glass shadow-4-strong rounded-6">
             <table class="
-            table table-borderless table-hover
+            table table-borderless table-hover table-striped
             align-middle
             mb-0
             text-white
@@ -349,34 +352,34 @@
                 <thead class="">
                     <tr>
                         <th>#</th>
-                        <th>Bug ID</th>
+                        <th style="text-align: center;">Bug ID</th>
                         <th>Title</th>
                         <th>Description</th>
-                        <th>Status</th>
-                        <th>Priority</th>
+                        <th style="text-align: center;">Status</th>
+                        <th style="text-align: center;">Priority</th>
                         <th>Assigned to</th>
                         <th>Reported by</th>
-                        <th>Updated On</th>
-                        <th>Created On</th>
-                        <th>Actions</th>
+                        <th style="text-align: center;">Updated On</th>
+                        <th style="text-align: center;">Created On</th>
+                        <th style="text-align: center;">Actions</th>
                     </tr>
                 </thead>
                 <tbody class="">
                     {% for prticket in sorted_tickets %}
                     {% for ticket in closed_tickets %}
-                    {% if prticket.id == ticket.id %}
+                    {% if prticket.bug_ref == ticket.id %}
                     <tr class="text-white">
-                        <td>{{ forloop.counter }}</td>
-                        <td>{{ ticket.id }}</td>
+                        <td>{% cycle '1' '2' '3' '4' '5' '6' '7' '8' '9' '10' '11' '12' '13' '14' '15' '16' '17' '18' '19' '20' '21' '22' '23' '24' '25' '26' '27' '28' '29' '30' %}</td>
+                        <td style="text-align: center;">{{ ticket.id }}</td>
                         <td>
                             <p class="fw-bold" style="min-width: 120px;">{{ ticket.title }}</p>
                         </td>
                         <td>
                             <p style="min-width: 200px;">{{ ticket.description }}</p>
                         </td>
-                        <td>
+                        <td style="text-align: center;">
                             {% if ticket.status == 'closed' %}
-                            <span class="badge badge-primary rounded-pill">
+                            <span class="badge badge-secondary rounded-pill">
                                 Closed
                             </span>
                             {% else %}
@@ -385,7 +388,7 @@
                             </span>
                             {% endif %}
                         </td>
-                        <td>
+                        <td style="text-align: center;">
                             {% if ticket.priority == 1 %}
                             <span class="badge badge-danger rounded-pill">
                                 Urgent
@@ -395,7 +398,7 @@
                                 High
                             </span>
                             {% elif ticket.priority == 3 %}
-                            <span class="badge badge-success rounded-pill">
+                            <span class="badge badge-primary rounded-pill">
                                 Medium
                             </span>
                             {% else %}
@@ -405,11 +408,11 @@
                             {% endif %}
                         </td>
                         <td>
-                            {% for user in ticket.assigned_to %}
+                            {% for user in ticket.assigned_to.all %}
                             <div class="d-flex align-items-center">
                                 <!-- https://mdbootstrap.com/img/new/avatars/8.jpg -->
                                 <img src="{{ user.avatar.url }}" alt="avatar"
-                                    style="width: 25px; height: 25px" class="rounded-circle"/>
+                                    style="width: 35px; height: 35px" class="rounded-circle"/>
                                 <div class="ms-3">
                                     <p class="fw-bold mb-1">@{{ user.username }}</p>
                                     <p class="text-muted mb-0">{{ user.email }}</p>
@@ -420,26 +423,26 @@
                         <td>
                             <div class="d-flex align-items-center">
                                 <img src="{{ ticket.reported_by.avatar.url }}" alt=""
-                                    style="width: 25px; height: 25px" class="rounded-circle" />
+                                    style="width: 35px; height: 35px" class="rounded-circle" />
                                 <div class="ms-3">
                                     <p class="fw-bold mb-1">@{{ ticket.reported_by.username }}</p>
                                     <p class="text-muted mb-0">{{ ticket.reported_by.email }}</p>
                                 </div>
                             </div>
                         </td>
-                        <td>{{ ticket.update_date }}</td>
-                        <td>{{ ticket.create_date }}</td>
+                        <td style="text-align: center;">{{ ticket.update_date }}</td>
+                        <td style="text-align: center;">{{ ticket.create_date }}</td>
                         <td>
                             <div class="d-flex flex-column align-items-center" style="min-width: 90px;">
                                 <div class="m-1">
-                                    <button type="button" class="btn btn-outline-success btn-sm btn-rounded">
-                                        <i class="far fa-envelope-open m-1"></i>Re-open
-                                    </button>
+                                    <a href=" {% url 'update-status' ticket.id 0 %} " class="btn btn-outline-success btn-sm btn-rounded">
+                                        <i class="far fa-envelope-open m-1"></i>Re-Open
+                                    </a>
                                 </div>
                                 <div class="m-1">
-                                    <button type="button" class="btn btn-outline-danger btn-sm btn-rounded">
+                                    <a href="{% url 'delete-ticket' ticket.id %}" class="btn btn-outline-danger btn-sm btn-rounded">
                                         Delete
-                                    </button>
+                                    </a>
                                 </div>
                             </div>
                         </td>
