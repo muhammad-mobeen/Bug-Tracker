@@ -1,0 +1,118 @@
+{% extends 'main.html' %}
+
+{% block title %}{% if ediTicket %}Edit Ticket{% else %}Add Ticket{% endif %}{% endblock %}
+
+{% block content %}
+
+<div class="container py-4">
+  {% include 'messages.html' %}
+
+  <div class="d-flex justify-content-center mx-4 mb-3">
+    <h1>{% if ediTicket %}Edit Ticket{% else %}Generate New Ticket{% endif %}</h1>
+  </div>
+  <section class="d-flex justify-content-center mb-5">
+    <div class="bg-glass shadow-4-strong rounded-6" style="min-width: 600px;">
+      <form method="POST"
+        action="{% if ediTicket %}{% url 'update-ticket' ediTicket.id %}{% else %}{% url 'add-ticket' %}{% endif %}"
+        class="align-middle mx-5 p-5" style="min-width: 500px;">
+        {% csrf_token %}
+        <!-- Text input -->
+        <div class="form-outline mb-4">
+          <input type="text" name="title" id="form6Example3" class="form-control text-white"
+            {% if ediTicket %}value="{{ ediTicket.title }}" {% endif %} required />
+          <label class="form-label text-white" for="form6Example3">Title</label>
+        </div>
+
+        <!-- Message input -->
+        <div class="form-outline mb-4">
+          <textarea class="form-control text-white" name="description" id="form6Example7" rows="4"
+            data-mdb-showcounter="true" maxlength="500"
+            required>{% if ediTicket %}{{ ediTicket.description }}{% endif %}</textarea>
+          <label class="form-label text-white" for="form6Example7">Description</label>
+          <div class="form-helper"></div>
+        </div>
+
+        <!-- Priority Input -->
+        <div class="form-outline mb-4 selct">
+          <select name="priority" id="priority1" class="form-control">
+            <option value="1" {% if ediTicket.priority == 1 %}selected{% endif %}>
+              {% for i in '0123456'|make_list %}
+              &nbsp;
+              {% endfor %}
+              : Urgent
+            </option>
+            <option value="2" {% if ediTicket.priority == 2 %}selected{% endif %}>
+              {% for i in '0123456'|make_list %}
+              &nbsp;
+              {% endfor %}
+              : High
+            </option>
+            <option value="3" {% if ediTicket.priority == 3 %}selected{% endif %}>
+              {% for i in '0123456'|make_list %}
+              &nbsp;
+              {% endfor %}
+              : Medium
+            </option>
+            <option value="4" {% if ediTicket.priority == 4 or ediTicket == None %}selected{% endif %}>
+              {% for i in '0123456'|make_list %}
+              &nbsp;
+              {% endfor %}
+              : Low
+            </option>
+          </select>
+          <label class="form-label text-white" for="priority1">Priority</label>
+        </div>
+
+        <!-- Assignee Input -->
+        <div class="form-outline mb-4">
+          <select name="assigned_to" id="assignee" class="js-states form-control" multiple="multiple" required>
+            {% for user in users %}
+            <option value="{{ user.username }}" {% for tickUser in ediTicket.assigned_to.all %}
+              {% if tickUser.username == user.username %}selected{% endif %}{% endfor %}>
+              @{{ user.username }}
+            </option>
+            {% endfor %}
+          </select>
+        </div>
+
+        <!-- Reporter Input -->
+        <div class="form-outline mb-4">
+          <select name="reported_by" id="assignee" class="js-states form-control text-primary" disabled>
+            <option
+              value="{% if ediTicket %}{{ ediTicket.reported_by.username }}{% else %}{{ loged_user.username }}{% endif %}">
+              Reported by:
+              @{% if ediTicket %}{{ ediTicket.reported_by.username }}{% else %}{{ loged_user.username }}{% endif %}
+            </option>
+          </select>
+        </div>
+
+        <!-- <div class="input-group">
+                    <label class="label">Priority</label>
+                    <div class="rs-select2 js-select-simple select--no-search">
+                        <select name="priority" required>
+                            <option disabled="disabled" selected="selected">Choose option</option>
+                            <option {% if ticket.priority == 4 %}selected{% endif %}>Low</option>
+                            <option {% if ticket.priority == 1 %}selected{% endif %}>Urgent</option>
+                            <option {% if ticket.priority == 2 %}selected{% endif %}>High</option>
+                            <option {% if ticket.priority == 3 %}selected{% endif %}>Medium</option>
+                        </select>
+                        <div class="select-dropdown"></div>
+                    </div>
+                </div> -->
+
+        <!-- Submit button -->
+        <button type="submit" class="btn btn-{% if ediTicket %}success{% else %}primary{% endif %} btn-block mb-4">
+          <i class="fas fa-plus-circle m-1"></i> {% if ediTicket %}Update Bug Ticket{% else %}Add New Bug
+          Ticket{% endif %}
+        </button>
+        {% if ediTicket %}
+        <a href="{% url 'dashboard' %}" class="btn btn-primary btn-block mb-4">
+          <i class="fas fa-arrow-circle-left m-1"></i>Go Back
+        </a>
+        {% endif %}
+      </form>
+    </div>
+  </section>
+</div>
+
+{% endblock content %}
