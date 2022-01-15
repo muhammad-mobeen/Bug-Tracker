@@ -12,18 +12,22 @@
   </div>
   <section class="d-flex justify-content-center mb-5">
     <div class="bg-glass shadow-4-strong rounded-6" style="min-width: 600px;">
-      <form method="POST" action="{% if ediTicket %}{% url 'update-ticket' ediTicket.id %}{% else %}{% url 'add-ticket' %}{% endif %}" class="align-middle mx-5 p-5" style="min-width: 500px;">
+      <form method="POST"
+        action="{% if ediTicket %}{% url 'update-ticket' ediTicket.id %}{% else %}{% url 'add-ticket' %}{% endif %}"
+        class="align-middle mx-5 p-5" style="min-width: 500px;">
         {% csrf_token %}
         <!-- Text input -->
         <div class="form-outline mb-4">
-          <input type="text" name="title" id="form6Example3" class="form-control text-white" {% if ediTicket %}value="{{ ediTicket.title }}"{% endif %} required/>
+          <input type="text" name="title" id="form6Example3" class="form-control text-white"
+            {% if ediTicket %}value="{{ ediTicket.title }}" {% endif %} required />
           <label class="form-label text-white" for="form6Example3">Title</label>
         </div>
 
         <!-- Message input -->
         <div class="form-outline mb-4">
-          <textarea class="form-control text-white" name="description" id="form6Example7" rows="4" data-mdb-showcounter="true"
-            maxlength="500"required>{% if ediTicket %}{{ ediTicket.description }}{% endif %}</textarea>
+          <textarea class="form-control text-white" name="description" id="form6Example7" rows="4"
+            data-mdb-showcounter="true" maxlength="500"
+            required>{% if ediTicket %}{{ ediTicket.description }}{% endif %}</textarea>
           <label class="form-label text-white" for="form6Example7">Description</label>
           <div class="form-helper"></div>
         </div>
@@ -49,7 +53,7 @@
               {% endfor %}
               : Medium
             </option>
-            <option value="4"  {% if ediTicket.priority == 4 or ediTicket == None %}selected{% endif %}>
+            <option value="4" {% if ediTicket.priority == 4 or ediTicket == None %}selected{% endif %}>
               {% for i in '0123456'|make_list %}
               &nbsp;
               {% endfor %}
@@ -63,7 +67,8 @@
         <div class="form-outline mb-4">
           <select name="assigned_to" id="assignee" class="js-states form-control" multiple="multiple" required>
             {% for user in users %}
-            <option value="{{ user.username }}" {% for tickUser in ediTicket.assigned_to.all %} {% if tickUser.username == user.username %}selected{% endif %}{% endfor %}>
+            <option value="{{ user.username }}" {% for tickUser in ediTicket.assigned_to.all %}
+              {% if tickUser.username == user.username %}selected{% endif %}{% endfor %}>
               @{{ user.username }}
             </option>
             {% endfor %}
@@ -73,8 +78,10 @@
         <!-- Reporter Input -->
         <div class="form-outline mb-4">
           <select name="reported_by" id="assignee" class="js-states form-control text-primary" disabled>
-            <option value="{% if ediTicket %}{{ ediTicket.reported_by.username }}{% else %}{{ loged_user.username }}{% endif %}">
-              Reported by: @{% if ediTicket %}{{ ediTicket.reported_by.username }}{% else %}{{ loged_user.username }}{% endif %}
+            <option
+              value="{% if ediTicket %}{{ ediTicket.reported_by.username }}{% else %}{{ loged_user.username }}{% endif %}">
+              Reported by:
+              @{% if ediTicket %}{{ ediTicket.reported_by.username }}{% else %}{{ loged_user.username }}{% endif %}
             </option>
           </select>
         </div>
@@ -95,7 +102,8 @@
 
         <!-- Submit button -->
         <button type="submit" class="btn btn-{% if ediTicket %}success{% else %}primary{% endif %} btn-block mb-4">
-          <i class="fas fa-plus-circle m-1"></i> {% if ediTicket %}Update Bug Ticket{% else %}Add New Bug Ticket{% endif %}
+          <i class="fas fa-plus-circle m-1"></i> {% if ediTicket %}Update Bug Ticket{% else %}Add New Bug
+          Ticket{% endif %}
         </button>
         {% if ediTicket %}
         <a href="{% url 'dashboard' %}" class="btn btn-primary btn-block mb-4">

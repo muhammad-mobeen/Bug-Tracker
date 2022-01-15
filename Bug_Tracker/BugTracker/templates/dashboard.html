@@ -16,7 +16,8 @@
         <div class="row gx-xl-5">
             <div class="col-xl-3 col-md-6 mb-4 mb-xl-0">
                 <!-- Card -->
-                <a class="d-flex align-items-center p-4 bg-glass shadow-4-strong rounded-6 text-reset ripple" href="#" data-ripple-color="hsl(0, 0%, 75%)">
+                <a class="d-flex align-items-center p-4 bg-glass shadow-4-strong rounded-6 text-reset ripple" href="#"
+                    data-ripple-color="hsl(0, 0%, 75%)">
                     <div class="p-3 bg-theme rounded-4">
                         <i class='bx bxs-bug' style="font-size: xx-large;"></i>
                     </div>
@@ -34,7 +35,8 @@
 
             <div class="col-xl-3 col-md-6 mb-4 mb-xl-0">
                 <!-- Card -->
-                <a class="d-flex align-items-center p-4 bg-glass shadow-4-strong rounded-6 text-reset ripple" href="#" data-ripple-color="hsl(0, 0%, 75%)">
+                <a class="d-flex align-items-center p-4 bg-glass shadow-4-strong rounded-6 text-reset ripple" href="#"
+                    data-ripple-color="hsl(0, 0%, 75%)">
                     <div class="p-3 bg-theme rounded-4">
                         <i class="fas fa-envelope fa-lg text-white fa-fw"></i>
                         <!-- <i class="fas fa-file-alt fa-lg text-white fa-fw"></i> -->
@@ -53,7 +55,8 @@
 
             <div class="col-xl-3 col-md-6 mb-4 mb-xl-0">
                 <!-- Card -->
-                <a class="d-flex align-items-center p-4 bg-glass shadow-4-strong rounded-6 text-reset ripple" href="#" data-ripple-color="hsl(0, 0%, 75%)">
+                <a class="d-flex align-items-center p-4 bg-glass shadow-4-strong rounded-6 text-reset ripple" href="#"
+                    data-ripple-color="hsl(0, 0%, 75%)">
                     <div class="p-3 bg-theme rounded-4">
                         <i class="fas fa-clock fa-lg text-white fa-fw"></i>
                     </div>
@@ -71,7 +74,8 @@
 
             <div class="col-xl-3 col-md-6 mb-4 mb-xl-0">
                 <!-- Card -->
-                <a class="d-flex align-items-center p-4 bg-glass shadow-4-strong rounded-6 text-reset ripple" href="#" data-ripple-color="hsl(0, 0%, 75%)">
+                <a class="d-flex align-items-center p-4 bg-glass shadow-4-strong rounded-6 text-reset ripple" href="#"
+                    data-ripple-color="hsl(0, 0%, 75%)">
                     <div class="p-3 bg-theme rounded-4">
                         <i class="fas fa-check-double fa-lg text-white fa-fw"></i>
                         <!-- <i class="fas fa-sign-out-alt fa-lg text-white fa-fw"></i> -->
@@ -127,7 +131,8 @@
                     {% for ticket in inprogress_tickets %}
                     {% if prticket.bug_ref == ticket.id %}
                     <tr class="text-white">
-                        <td>{% cycle '1' '2' '3' '4' '5' '6' '7' '8' '9' '10' '11' '12' '13' '14' '15' '16' '17' '18' '19' '20' '21' '22' '23' '24' '25' '26' '27' '28' '29' '30' %}</td>
+                        <td>{% cycle '1' '2' '3' '4' '5' '6' '7' '8' '9' '10' '11' '12' '13' '14' '15' '16' '17' '18' '19' '20' '21' '22' '23' '24' '25' '26' '27' '28' '29' '30' %}
+                        </td>
                         <td style="text-align: center;">{{ ticket.id }}</td>
                         <td>
                             <p class="fw-bold" style="min-width: 120px;">{{ ticket.title }}</p>
@@ -158,8 +163,8 @@
                             {% for user in ticket.assigned_to.all %}
                             <div class="d-flex align-items-center">
                                 <!-- https://mdbootstrap.com/img/new/avatars/8.jpg -->
-                                <img src="{{ user.avatar.url }}" alt="avatar"
-                                    style="width: 35px; height: 35px" class="rounded-circle"/>
+                                <img src="{{ user.avatar.url }}" alt="avatar" style="width: 35px; height: 35px"
+                                    class="rounded-circle" />
                                 <div class="ms-3">
                                     <p class="fw-bold mb-1">@{{ user.username }}</p>
                                     <p class="text-muted mb-0">{{ user.email }}</p>
@@ -169,8 +174,8 @@
                         </td>
                         <td>
                             <div class="d-flex align-items-center">
-                                <img src="{{ ticket.reported_by.avatar.url }}" alt=""
-                                    style="width: 35px; height: 35px" class="rounded-circle" />
+                                <img src="{{ ticket.reported_by.avatar.url }}" alt="" style="width: 35px; height: 35px"
+                                    class="rounded-circle" />
                                 <div class="ms-3">
                                     <p class="fw-bold mb-1">@{{ ticket.reported_by.username }}</p>
                                     <p class="text-muted mb-0">{{ ticket.reported_by.email }}</p>
@@ -182,22 +187,26 @@
                         <td>
                             <div class="d-flex flex-column align-items-center" style="min-width: 90px;">
                                 <div class="m-1">
-                                    <a href=" {% url 'update-status' ticket.id 1 %} " class="btn btn-outline-success btn-sm btn-rounded">
+                                    <a href=" {% url 'update-status' ticket.id 1 %} "
+                                        class="btn btn-outline-success btn-sm btn-rounded">
                                         <i class="fas fa-check m-1"></i>Done
                                     </a>
                                 </div>
                                 <div class="m-1">
-                                    <a href=" {% url 'update-status' ticket.id 0 %} " class="btn btn-outline-secondary btn-sm btn-rounded">
+                                    <a href=" {% url 'update-status' ticket.id 0 %} "
+                                        class="btn btn-outline-secondary btn-sm btn-rounded">
                                         <i class="fas fa-slash m-1"></i>Close
                                     </a>
                                 </div>
                                 <div class="m-1">
-                                    <a href="{% url 'edit-ticket' ticket.id %}" class="btn btn-outline-white btn-sm btn-rounded">
+                                    <a href="{% url 'edit-ticket' ticket.id %}"
+                                        class="btn btn-outline-white btn-sm btn-rounded">
                                         Edit
                                     </a>
                                 </div>
                                 <div class="m-1">
-                                    <a href="{% url 'delete-ticket' ticket.id %}" class="btn btn-outline-danger btn-sm btn-rounded">
+                                    <a href="{% url 'delete-ticket' ticket.id %}"
+                                        class="btn btn-outline-danger btn-sm btn-rounded">
                                         Delete
                                     </a>
                                 </div>
@@ -250,7 +259,8 @@
                     {% for ticket in unopened_tickets %}
                     {% if prticket.bug_ref == ticket.id %}
                     <tr class="text-white">
-                        <td>{% cycle '1' '2' '3' '4' '5' '6' '7' '8' '9' '10' '11' '12' '13' '14' '15' '16' '17' '18' '19' '20' '21' '22' '23' '24' '25' '26' '27' '28' '29' '30' %}</td>
+                        <td>{% cycle '1' '2' '3' '4' '5' '6' '7' '8' '9' '10' '11' '12' '13' '14' '15' '16' '17' '18' '19' '20' '21' '22' '23' '24' '25' '26' '27' '28' '29' '30' %}
+                        </td>
                         <td style="text-align: center;">{{ ticket.id }}</td>
                         <td>
                             <p class="fw-bold" style="min-width: 120px;">{{ ticket.title }}</p>
@@ -281,8 +291,8 @@
                             {% for user in ticket.assigned_to.all %}
                             <div class="d-flex align-items-center">
                                 <!-- https://mdbootstrap.com/img/new/avatars/8.jpg -->
-                                <img src="{{ user.avatar.url }}" alt="avatar"
-                                    style="width: 35px; height: 35px" class="rounded-circle"/>
+                                <img src="{{ user.avatar.url }}" alt="avatar" style="width: 35px; height: 35px"
+                                    class="rounded-circle" />
                                 <div class="ms-3">
                                     <p class="fw-bold mb-1">@{{ user.username }}</p>
                                     <p class="text-muted mb-0">{{ user.email }}</p>
@@ -292,8 +302,8 @@
                         </td>
                         <td>
                             <div class="d-flex align-items-center">
-                                <img src="{{ ticket.reported_by.avatar.url }}" alt=""
-                                    style="width: 35px; height: 35px" class="rounded-circle" />
+                                <img src="{{ ticket.reported_by.avatar.url }}" alt="" style="width: 35px; height: 35px"
+                                    class="rounded-circle" />
                                 <div class="ms-3">
                                     <p class="fw-bold mb-1">@{{ ticket.reported_by.username }}</p>
                                     <p class="text-muted mb-0">{{ ticket.reported_by.email }}</p>
@@ -305,17 +315,20 @@
                         <td>
                             <div class="d-flex flex-column align-items-center" style="min-width: 90px;">
                                 <div class="m-1">
-                                    <a href="{% url 'update-status' ticket.id 0 %}" class="btn btn-outline-success btn-sm btn-rounded">
+                                    <a href="{% url 'update-status' ticket.id 0 %}"
+                                        class="btn btn-outline-success btn-sm btn-rounded">
                                         <i class="far fa-envelope-open m-1"></i>Open
                                     </a>
                                 </div>
                                 <div class="m-1">
-                                    <a href="{% url 'edit-ticket' ticket.id %}" class="btn btn-outline-white btn-sm btn-rounded">
+                                    <a href="{% url 'edit-ticket' ticket.id %}"
+                                        class="btn btn-outline-white btn-sm btn-rounded">
                                         Edit
                                     </a>
                                 </div>
                                 <div class="m-1">
-                                    <a href="{% url 'delete-ticket' ticket.id %}" class="btn btn-outline-danger btn-sm btn-rounded">
+                                    <a href="{% url 'delete-ticket' ticket.id %}"
+                                        class="btn btn-outline-danger btn-sm btn-rounded">
                                         Delete
                                     </a>
                                 </div>
@@ -369,7 +382,8 @@
                     {% for ticket in closed_tickets %}
                     {% if prticket.bug_ref == ticket.id %}
                     <tr class="text-white">
-                        <td>{% cycle '1' '2' '3' '4' '5' '6' '7' '8' '9' '10' '11' '12' '13' '14' '15' '16' '17' '18' '19' '20' '21' '22' '23' '24' '25' '26' '27' '28' '29' '30' %}</td>
+                        <td>{% cycle '1' '2' '3' '4' '5' '6' '7' '8' '9' '10' '11' '12' '13' '14' '15' '16' '17' '18' '19' '20' '21' '22' '23' '24' '25' '26' '27' '28' '29' '30' %}
+                        </td>
                         <td style="text-align: center;">{{ ticket.id }}</td>
                         <td>
                             <p class="fw-bold" style="min-width: 120px;">{{ ticket.title }}</p>
@@ -411,8 +425,8 @@
                             {% for user in ticket.assigned_to.all %}
                             <div class="d-flex align-items-center">
                                 <!-- https://mdbootstrap.com/img/new/avatars/8.jpg -->
-                                <img src="{{ user.avatar.url }}" alt="avatar"
-                                    style="width: 35px; height: 35px" class="rounded-circle"/>
+                                <img src="{{ user.avatar.url }}" alt="avatar" style="width: 35px; height: 35px"
+                                    class="rounded-circle" />
                                 <div class="ms-3">
                                     <p class="fw-bold mb-1">@{{ user.username }}</p>
                                     <p class="text-muted mb-0">{{ user.email }}</p>
@@ -422,8 +436,8 @@
                         </td>
                         <td>
                             <div class="d-flex align-items-center">
-                                <img src="{{ ticket.reported_by.avatar.url }}" alt=""
-                                    style="width: 35px; height: 35px" class="rounded-circle" />
+                                <img src="{{ ticket.reported_by.avatar.url }}" alt="" style="width: 35px; height: 35px"
+                                    class="rounded-circle" />
                                 <div class="ms-3">
                                     <p class="fw-bold mb-1">@{{ ticket.reported_by.username }}</p>
                                     <p class="text-muted mb-0">{{ ticket.reported_by.email }}</p>
@@ -435,12 +449,14 @@
                         <td>
                             <div class="d-flex flex-column align-items-center" style="min-width: 90px;">
                                 <div class="m-1">
-                                    <a href=" {% url 'update-status' ticket.id 0 %} " class="btn btn-outline-success btn-sm btn-rounded">
+                                    <a href=" {% url 'update-status' ticket.id 0 %} "
+                                        class="btn btn-outline-success btn-sm btn-rounded">
                                         <i class="far fa-envelope-open m-1"></i>Re-Open
                                     </a>
                                 </div>
                                 <div class="m-1">
-                                    <a href="{% url 'delete-ticket' ticket.id %}" class="btn btn-outline-danger btn-sm btn-rounded">
+                                    <a href="{% url 'delete-ticket' ticket.id %}"
+                                        class="btn btn-outline-danger btn-sm btn-rounded">
                                         Delete
                                     </a>
                                 </div>

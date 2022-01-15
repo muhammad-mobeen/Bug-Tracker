@@ -21,8 +21,6 @@ urlpatterns = [
     path("login/", views.loginPage, name="login"),
     path("logout/", views.logoutUser, name="logout"),
     path('', views.dashboard, name='home'),
-    path('index/', views.dashboard, name='home'),
-    path("show/", views.show, name="show"),
     path("dashboard/", views.dashboard, name="dashboard"),
     path("teams/", views.teams, name="teams"),
     path("add-ticket/", views.add_ticket, name="add-ticket"),
@@ -30,5 +28,7 @@ urlpatterns = [
     path("edit-ticket/<int:id>/", views.edit_ticket, name="edit-ticket"),
     path("update-ticket/<int:id>/", views.update_ticket, name="update-ticket"),
     path("delete-ticket/<int:id>/", views.delete_ticket, name="delete-ticket"),
+    # path('index/', views.dashboard, name='home'),
+    # path("show/", views.show, name="show"),
     # path("sort-tickets/", views.sorter, name="sort-tickets"),
 ]
