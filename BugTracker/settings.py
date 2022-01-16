@@ -81,10 +81,10 @@ WSGI_APPLICATION = 'BugTracker.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'bug_tracker',
-        'HOST': 'localhost',
-        'USER': 'root',
-        'PASSWORD': '',
+        'NAME': 'muhammadmobeen_bug_tracker',
+        'HOST': '39.50.114.239',
+        'USER': 'muhammadmobeen_bug_tracker',
+        'PASSWORD': '!9goNi$!Tn#gcd6sx!Qr',
         'PORT': '3306',
         'OPTIONS': {
             'sql_mode': 'traditional',
