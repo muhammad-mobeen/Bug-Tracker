@@ -24,7 +24,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-e35=@hb66%1@wyiga1sit5&(3-*g*z%lc8lh+f)him!qdw-(i0'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = ['bug---tracker.herokuapp.com']
 
@@ -82,7 +82,7 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': 'muhammadmobeen_bug_tracker',
-        'HOST': 'muhammadmobeen.com',
+        'HOST': '23.111.183.178',
         'USER': 'muhammadmobeen_bug_tracker',
         'PASSWORD': '!9goNi$!Tn#gcd6sx!Qr',
         'PORT': '3306',
