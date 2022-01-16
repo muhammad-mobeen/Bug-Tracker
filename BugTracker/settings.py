@@ -82,7 +82,7 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': 'muhammadmobeen_bug_tracker',
-        'HOST': '39.50.114.239',
+        'HOST': 'muhammadmobeen.com',
         'USER': 'muhammadmobeen_bug_tracker',
         'PASSWORD': '!9goNi$!Tn#gcd6sx!Qr',
         'PORT': '3306',
