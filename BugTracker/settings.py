@@ -84,7 +84,7 @@ DATABASES = {
         'NAME': 'muhammadmobeen_bug_tracker',
         'HOST': '23.111.183.178',
         'USER': 'muhammadmobeen_bug_tracker',
-        'PASSWORD': '!9goNi$!Tn#gcd6sx!Qr',
+        'PASSWORD': 'Main Nhi Btaon Ga!!',
         'PORT': '3306',
         'OPTIONS': {
             'sql_mode': 'traditional',
