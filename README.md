@@ -2,15 +2,15 @@
 The objective of Bug Tracker Application is to provide user a responsive application using appropriate data structures and efficient algorithms, while also providing a user-interface for perfect user-friendly experience. The objectives are stated as below: -
 1.	Registered/Logged in users can issue or generate new bug tickets or edit existing ones.
 2.	Bug ticket will contain several parameters that will give more information on that specific bug. Some of the parameters are as follows:-
-    2a.	Bug ID number (Unique ID)
-    2b.	Priority (High, Medium, Low, etc.)
-    2c.	Title
-    2d.	Description
-    2e.	Status (In Progress, Unopened, Closed)
-    2f.	Assigned to
-    2g.	Reported by
-    2h.	Updated on (Time when its information was last updated)
-    2i.	Created on (Reporting time)
+    1.	Bug ID number (Unique ID)
+    2.	Priority (High, Medium, Low, etc.)
+    3.	Title
+    4.	Description
+    5.	Status (In Progress, Unopened, Closed)
+    6.	Assigned to
+    7.	Reported by
+    8.	Updated on (Time when its information was last updated)
+    9.	Created on (Reporting time)
 3.	These bug tickets will be stored in the database in a sequence determined by the data Structure and Algorithms that will be implemented (defined at the Procedure section).
 4.	The application will generate a ‘Planner’ which will allow the user to view the bugs that needs to be resolved and also provides the functionality to edit, delete or mark as resolved.
 5.	Software application should be decentralized, means that everyone could access it easily, this gives the means of hosting the application as a Web Application.
