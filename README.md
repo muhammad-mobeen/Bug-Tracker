@@ -1,4 +1,5 @@
 # Bug-Tracker
+![Header](/readme_assets/Header.png)
 ## Overview
 The objective of Bug Tracker Application is to provide user a responsive application using appropriate data structures and efficient algorithms, while also providing a user-interface for perfect user-friendly experience. The objectives are stated as below: -
 1.	Registered/Logged in users can issue or generate new bug tickets or edit existing ones.
